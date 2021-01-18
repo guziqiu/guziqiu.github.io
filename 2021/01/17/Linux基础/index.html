@@ -1,0 +1,3677 @@
+<!DOCTYPE html>
+
+
+<html lang="zh-CN">
+
+
+<head>
+  <meta charset="utf-8" />
+   
+  <meta name="keywords" content="关键字" />
+   
+  <meta name="description" content="说明" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>
+    Linux基础 |  古子秋
+  </title>
+  <meta name="generator" content="hexo-theme-ayer">
+  
+  <link rel="shortcut icon" href="/favicon.ico" />
+  
+  
+<link rel="stylesheet" href="/dist/main.css">
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/css/remixicon.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  
+  
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+  
+  
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    
+      
+      <canvas width="1777" height="841"
+        style="position: fixed; left: 0px; top: 0px; z-index: 99999; pointer-events: none;"></canvas>
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-Linux基础"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  Linux基础
+</h1>
+ 
+
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2021/01/17/Linux%E5%9F%BA%E7%A1%80/" class="article-date">
+  <time datetime="2021-01-17T15:40:11.000Z" itemprop="datePublished">2021-01-17</time>
+</a>   
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> 字数统计:</span>
+            <span class="post-count">14.9k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> 阅读时长≈</span>
+            <span class="post-count">67 分钟</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>2020.11.18-2020.12.20</p>
+<h1 id="一、基础知识"><a href="#一、基础知识" class="headerlink" title="一、基础知识"></a>一、基础知识</h1><h2 id="1-vim的基本使用"><a href="#1-vim的基本使用" class="headerlink" title="1.vim的基本使用"></a>1.<code>vim</code>的基本使用</h2><a id="more"></a>
+
+<blockquote>
+<p><code>pwd</code>        (print working directory)</p>
+<p><code>$0whoamiaptapt </code></p>
+<p><code>updateapt</code> </p>
+<p><code>upgrade</code><br><code>apt-cache search XXX</code>        (搜索XXX软件)<br><code>apt remove XXX</code>        (卸载XXX软件)<br><code>dpkg -i xxx.dep</code>        (使用dpkg程序安装xxx.dep)(安装 = install -&gt; -i)<br><code>dpkg -r</code>         (使用dpkg卸载软件)(卸载 = remove -&gt; -r)</p>
+</blockquote>
+<h2 id="2-Terminal"><a href="#2-Terminal" class="headerlink" title="2.Terminal"></a>2.<code>Terminal</code></h2><p>终端<code>( terminal )= tty </code>(Teletypewriter， 电传打印机)，作用是提供一个命令的输入输出环 境，在<code>linux</code>操作系统下使用组合键 <code>ctrl + alt + T</code> 打开的就是终端，可以认为 <code>terminal</code> 和 <code>tty </code>是 同义词。</p>
+<h2 id="3-shell"><a href="#3-shell" class="headerlink" title="3.shell"></a>3.<code>shell</code></h2><p><code>shell</code>是一种人机交互的接口。 <code>shell</code> 有壳的意思，是指 “提供使用者使用界面” 的软件，是一种 命令解析器,是<code>Linux</code>内核的一个壳，负责外界与Linux内核的交互。</p>
+<blockquote>
+<p><code>windows</code> 的cmd就是一种<code>shell</code>。所以 <code>shell</code> 并不只是指命令语言<code>-Bash/Zsh</code>。 其实GUI本身也是一种<code>shell</code>.</p>
+</blockquote>
+<p>用户在 <code>shell</code> 中提交命令， <code>shell</code> 负责接收用户的命令，并扮演命令解析器的⻆色。 </p>
+<p>当你打开一个 <code>Terminal</code> 时，操作系统会将 Terminal 和 Shell 关联起来，当我们在 <code>Terminal</code> 中输入命令的时候， <code>Shell</code> 就负责解释命令。</p>
+<h2 id="3、命令"><a href="#3、命令" class="headerlink" title="3、命令"></a>3、命令</h2><blockquote>
+<p>命令是人和计算机交互的基本单位，人使用命令 将要做什么事传达给计算机，计算机做出解 析，并做出回应。</p>
+</blockquote>
+<p><strong>命令也有自己的语法结构</strong>:</p>
+<p>和人说话一样，命令的主要结构也可以看做为主谓宾的简单句和复杂句，在命令中，省略主语</p>
+<blockquote>
+<p>举个例子</p>
+</blockquote>
+<p><code>cp(谓语动词) fileA(宾语) fileB(宾语)</code></p>
+<p> <code>cp(谓语动词) -ar(方式状语) fileA(宾语) fileB(宾语)</code></p>
+<p><strong>命令细节</strong></p>
+<blockquote>
+<p>Linux命令由以下几个部分组成: 命令名 ， 分隔符 ， 选项 和 操作对象 组成。 </p>
+</blockquote>
+<p><strong>命令名</strong></p>
+<p>命令名标识了命令的功能，如cp，rm，mv，rename，fdisk等等，都能很轻易的看出该命令的功能， 还有一些命令，有二级子命令，如apt-get install | remove，install和remove就是apt-get的子命令。</p>
+<p><strong>分隔符</strong></p>
+<p>  分隔符通常为空格，连续的多个空格会被视为一个空格。</p>
+<blockquote>
+<p>一些特殊的符号也属于分隔符，例如管道<code>|</code>，重定向<code>&gt;,&lt;&lt;,&lt;,&gt;&gt;,</code>后台运行<code>&amp;</code>，序列执行<code>&amp;&amp;```、;</code>都 是特殊的分隔符，在使用这些特殊符号的时候，不需要额外加空格，但为了使命令更易读，通常会 加上空格。</p>
+</blockquote>
+<p><strong>选项</strong></p>
+<ul>
+<li>命令的选项通常用 <code>-</code> 连接，通常为一个字母，是选项的首字母。大多数命令都可以使用 <code>-h</code> 来 查看该命令的帮助。</li>
+<li>命令的选项也可以使用 <code>--</code> 来引导，接的是选项的全程，效果与—连接单个字母是一样的。</li>
+</ul>
+<p><strong>操作对象</strong></p>
+<p>   操作对象为该命令动作的承受着。</p>
+<p><strong>格式约定</strong></p>
+<ul>
+<li>使用 <code>[]</code> 来标记可以选择的选项</li>
+<li>使用 <code>|</code> 来表示不能同时使用的参数 </li>
+<li>选项通常紧跟命令名，当然，在很多时候我们可以省略命令的选项而使用默认参数</li>
+</ul>
+<h2 id="4-程序与进程"><a href="#4-程序与进程" class="headerlink" title="4.程序与进程"></a><strong>4.程序与进程</strong></h2><blockquote>
+<p>那么什么是程序呢?</p>
+<blockquote>
+<p> 计算机程序是指一组指示计算机执行动作或做出判断的指令，通常用某种程序设计语言<br> 编写，运行于某种目标体系结构上。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>什么又是进程呢?</p>
+<blockquote>
+<p>进程是程序在内存中的镜像。</p>
+</blockquote>
+</blockquote>
+<h2 id="5-路径"><a href="#5-路径" class="headerlink" title="5.路径"></a>5.路径</h2><p><strong>绝对路径</strong></p>
+<p>​    绝对路径的起始点为根目录 <code>/</code> ,例如 <code>/usr/bin/cp</code> 就是一个绝对路径。</p>
+<p><strong>相对路径</strong> </p>
+<p>​    相对路径的起始点为当前路径 <code>.</code> ，假如用户当前目录为 <code>/home/apricity/</code> ，那么同样的文件 <code>cp</code> ,其 相对路径为 <code>../../usr/bin/cp</code> 。</p>
+<p><strong>远程路径</strong></p>
+<blockquote>
+<p>在很多时候，我们会需要访问本机之外的资源，这个时候远程路径就有了用武之地了。</p>
+</blockquote>
+<p>远程路径的一般表示方法为: <code>协议://用户名:密码@位置/路径:端口</code> 比如: <a target="_blank" rel="noopener" href="http://baidu.com/">http://baidu.com</a></p>
+<p>​    <code>ftp://user:passwd@ftp.baidu.com:21</code><br>  远程路径根据应用的不同，具体表示方法和所需要的参数都不太一致，从以上两个远程路径就可以<br>看出。</p>
+<p><strong>路径相关的命令</strong></p>
+<blockquote>
+<p><code>cd</code> #change directory</p>
+</blockquote>
+<blockquote>
+<p><code>ls</code> #list<br><code>pwd</code> #print working directory</p>
+</blockquote>
+<p><strong>特殊路径</strong></p>
+<blockquote>
+<p><code>~</code> 家目录<br><code>-</code> 上次工作目录</p>
+</blockquote>
+<h2 id="6-软件"><a href="#6-软件" class="headerlink" title="6.软件"></a><strong>6.软件</strong></h2><p>通常，一个软件包含的内容会分别被拷⻉到同级别的 <code>bin lib share</code> 和 <code>/etc</code> 目录下。</p>
+<blockquote>
+<p><code>bin</code> 存放程序的可执行文件。在系统环境变量中将该路径添加进去，就可以直接执行程序. </p>
+<p><code>lib</code> 库文件集中存放，方便共享。<br><code>share</code> 存放程序需要的其他资源.<br><code>/etc</code> 配置文件存放路径，大部分的程序的配置文件都可以在这个路径下找到</p>
+</blockquote>
+<h2 id="7-配置方式"><a href="#7-配置方式" class="headerlink" title="7.配置方式"></a>7.<strong>配置方式</strong></h2><blockquote>
+<p><code>/etc/network/interface</code> 文件为Ubuntu的网络配置文件，通过修改该文件，并重启网络， 就可以实现网络的配置工作。</p>
+</blockquote>
+<p>直接使用ifconfig命令来直接修改网络配置:</p>
+<p><code>ifconfig eth0 172.17.211.175</code></p>
+<p>这条命令将把设备<code> eth0</code> 的<code>ip</code>地址更新为 <code>172.17.211.175</code> 。</p>
+<h2 id="8-隐藏文件"><a href="#8-隐藏文件" class="headerlink" title="8.隐藏文件"></a>8.隐藏文件</h2><p>Linux的隐藏文件都是以<code> .</code> 开头的，也就是说所有以 <code>.</code> 开头的文件都会被系统识别为隐藏文件。</p>
+<p>使用<code> ls</code> 命令添加 <code>a</code> 选项，就可以显示隐藏文件。 这里有两个特殊的目录 <code>.</code> 和<code> ..</code> ,分别为当前目录和父目录。</p>
+<h2 id="9-文件类型"><a href="#9-文件类型" class="headerlink" title="9.文件类型"></a>9.文件类型</h2><p>使用 <code>ll</code> 命令可以查看当前文件夹下所有文件的详细信息。</p>
+<blockquote>
+<p><code>ll</code> 等效于 <code>ls -al</code></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">apricity@qiu ~ % ll                                                                                                                                                           [0]</span><br><span class="line">total 40K</span><br><span class="line">-rw-rw-r-- 1 apricity apricity    0 Nov 22 16:39 aaa.txt</span><br><span class="line">drwxrwxr-x 7 apricity apricity 4.0K Nov 20 19:08 autojump</span><br><span class="line">drwxrwxr-x 2 apricity apricity 4.0K Nov 25 11:34 C语言</span><br><span class="line">drwxrwxr-x 3 apricity apricity 4.0K Nov 19 14:42 guziqiu</span><br><span class="line">drwxrwxr-x 2 apricity apricity 4.0K Nov 20 19:33 haizei_oj</span><br><span class="line">-rw-rw-r-- 1 apricity apricity 8.3K May 25  2020 install_zsh.sh</span><br><span class="line">drwxrwxr-x 4 apricity apricity 4.0K Nov 22 14:10 linux基础</span><br><span class="line">drwxrwxr-x 2 apricity apricity 4.0K Nov 22 20:46 <span class="built_in">test</span></span><br><span class="line">-rw-rw-r-- 1 apricity apricity    0 Nov 12 01:14 update</span><br><span class="line">drwxrwxr-x 7 apricity apricity 4.0K Nov 12 00:49 zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
+<p>​        <strong>该命令主要输出了七列内容，分别为:权限、文件数、所属用户、所属群组、文件大小、常⻅日</strong><br><strong>期、文件名。</strong><br>          <strong>第一列权限，主要可以分为以下四个部分:文件类型，所属用户权限，所属组权限，其他用户权</strong><br><strong>限</strong>。</p>
+<blockquote>
+<p>以刚才执行<code>ll</code>的结果中的 <code>../</code> 目录的权限为例:</p>
+<table>
+<thead>
+<tr>
+<th align="center">文件类型</th>
+<th align="center">所属用户权限</th>
+<th align="center">所属群组权限</th>
+<th align="center">其他用户权限</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">d</td>
+<td align="center">rwx</td>
+<td align="center">r-x</td>
+<td align="center">r-x</td>
+</tr>
+</tbody></table>
+</blockquote>
+<ul>
+<li><p>第一部分文件类型为 d ,代表这个文件是一个目录(directory)，目录是一种特殊的文件; </p>
+</li>
+<li><p>第二部分所属用户权限为 rwx ，代表该文件拥有者拥有可读(read),可写(write),可执行(execute) 的权限;</p>
+</li>
+<li><p>第三部分所属群组权限为 r-x ，代表与该文件拥有者在一个群组的用户具有可读，可执行的权 限，在这里<code> -</code> 顶替了<code>w</code>的位置，代表没有写权限; </p>
+</li>
+<li><p>第四部分其他用户权限同样为可读，可执行。</p>
+</li>
+</ul>
+<blockquote>
+<p><code>rwx</code> 的顺序是固定的!</p>
+</blockquote>
+<p>Linux中的文件类型除了目录 d 之外，总共有7种文件类型，</p>
+<ul>
+<li><code>-</code> regular file 普通文件</li>
+<li><code>d</code> directory目录 </li>
+<li><code>l</code> link链接</li>
+<li><code>b</code>  block 块设备 存储数据以供系统存取的接口设备，也就是硬盘</li>
+<li><code>c</code>   character 字符设备 串口设备，键盘，鼠标等</li>
+<li><code>s</code> socket套接字<code>//应用层和底层的接口</code></li>
+<li><code>p</code> pipe管道</li>
+</ul>
+<p>对于普通文件又可以分为以下三种:</p>
+<ul>
+<li><p>纯文本文件</p>
+<p>​        纯文本文件使用<code>ASCII</code>编码，这是<code>Linux</code>系统中最常⻅的一种文件类型，之所以成为纯文本文件，是因 为这种类型的文件是我们可以直接读取的内容，在<code>Linux</code>，几乎所有的配置文件都属于这种类型。</p>
+</li>
+<li><p>二进制文件 </p>
+<p>​        二进制文件是系统中的可执行文件(不包括脚本)，计算机只能认识并执行二进制文件。二进制文件不能使用 <code>cat</code> 等命令直接读出。 </p>
+</li>
+<li><p>数据格式的文件</p>
+<p>在一些程序运行过程中，需要读取特定格式的文件，这种文件被称为数据文件(data file)。这种文件 通常也不能使用<code>cat</code>命令读出。 例如: <code>/var/log/wtmp</code> 文件。</p>
+</li>
+</ul>
+<blockquote>
+<p>使用<code>ll</code>命令查看文件，可以看到该文件为普通文件   <code>ll</code> == <code>ls -l</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ll /var/<span class="built_in">log</span>/wtmp</span><br><span class="line"></span><br><span class="line">&gt;-rw-rw-r-- 1 root utmp 8832 Apr 27 11:50 /var/<span class="built_in">log</span>/wtmp</span><br></pre></td></tr></table></figure>
+
+<p>使用file命令查看问价详情，返回为 <code>data</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;file /var/<span class="built_in">log</span>/wtmp</span><br><span class="line">&gt;/var/<span class="built_in">log</span>/wtmp: data</span><br></pre></td></tr></table></figure>
+
+
+</blockquote>
+<h2 id="10-文件权限"><a href="#10-文件权限" class="headerlink" title="10.文件权限"></a>10.文件权限</h2><p>​        </p>
+<blockquote>
+<p>文件的权限包含三组( <code>u</code> 用户，<code> g</code> 群组，<code> o</code> 其他用户)，每一组又都包含 三组具体的权限(<code>r</code>读，<code>w</code>写，<code>x</code>执行)。    </p>
+</blockquote>
+<p>​            对于文件权限，我们也可以用下面的方式来表示:</p>
+<table>
+<thead>
+<tr>
+<th align="center">r</th>
+<th align="center">w</th>
+<th align="center">x</th>
+<th align="center">r</th>
+<th align="center">w</th>
+<th align="center">x</th>
+<th align="center">r</th>
+<th align="center">w</th>
+<th align="center">x</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">(2^2) 4</td>
+<td align="center">(2^1) 2</td>
+<td align="center">(2^0) 1</td>
+<td align="center">(2^2) 4</td>
+<td align="center">(2^1) 2</td>
+<td align="center">(2^0) 1</td>
+<td align="center">(2^2) 4</td>
+<td align="center">(2^1) 2</td>
+<td align="center">(2^0) 1</td>
+</tr>
+</tbody></table>
+<p>也就是权限的每一组都由三个十进制的数字表示，该组的的权限就可以简单的用着三个十进制的数</p>
+<p>字相加得到。</p>
+<blockquote>
+<p>一个权限为<code> rwxr-xr-x</code> 的文件，则它的权限可以使用 <code>755</code> 来表示。</p>
+</blockquote>
+<h2 id="11-与文件权限有关的命令"><a href="#11-与文件权限有关的命令" class="headerlink" title="11.与文件权限有关的命令"></a>11.<strong>与文件权限有关的命令</strong></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chmod <span class="comment">#更改文件权限 </span></span><br><span class="line">chown <span class="comment">#更改文件所属用户 </span></span><br><span class="line">chgrp <span class="comment">#更改文件所属组</span></span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li>chmod 的用法</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chmod a+x file <span class="comment">#给file文件的ugo都赋予执行的权限</span></span><br><span class="line">chmod o-x file <span class="comment">#将file文件o减去执行权限</span></span><br><span class="line">chmod 755 file <span class="comment">#设置file文件的权限为rwxr-xr-x</span></span><br><span class="line">chmod u=rwx,go=rx file <span class="comment">#设置file文件的权限为rwxr-xr-x</span></span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li>chown 的用法</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chown guziqiu:apricity file <span class="comment">#修改file的所属用户是guziqiu,所属组为apricity</span></span><br><span class="line"> chown -R guziqiu:apricity directory </span><br><span class="line"> <span class="comment">#修改目录directory及目录下的所有文件的所属用户是guziqiu， 所属组为zpricity</span></span><br><span class="line"> chown guziqiu file <span class="comment">#修改file的所属用户为guziqiu</span></span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li>chgrp 的用法</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chgrp root file <span class="comment">#修改file所属的组为root</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="12-用户"><a href="#12-用户" class="headerlink" title="12.用户"></a>12.用户</h2><blockquote>
+<p><code>Linux</code>有两类用户,分别是 <code>root</code> 和 <code>普通用户</code> 。</p>
+</blockquote>
+<ul>
+<li><p>超级管理员: <code>root</code></p>
+<p><code>root</code> 拥有系统的完全控制权，所以在使用<code>Linux</code>系统的时候，需要慎重使用<code>root</code>用户，更多的自由 与权限同样也意味着更大的⻛险。</p>
+</li>
+<li><p>普通用户</p>
+<p>普通用户拥有的权限就没有 <code>root</code> 用户那么大了，它只能做系统允许做的事。普通用户可以执行大 部分的命令，但是<code>root</code>专有的命令却不能执行。</p>
+</li>
+</ul>
+<p>可以使用 su 命令来切换用户:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">:~$ whoami</span><br><span class="line">guziqiu</span><br><span class="line">:~$ su - root</span><br><span class="line">Password:</span><br><span class="line">:~<span class="comment"># whoami</span></span><br><span class="line">root</span><br><span class="line">:~<span class="comment"># su - guziqiu</span></span><br><span class="line">:~$ whoami</span><br><span class="line">guziqiu</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>su - guziqiu</code></p>
+<p><code>-</code>代表一次完整的重新登录</p>
+</blockquote>
+<p>退出</p>
+<p><code>control +D</code></p>
+<p><code>exit </code></p>
+<p><code>logout</code></p>
+<h2 id="13-其他命令"><a href="#13-其他命令" class="headerlink" title="13.其他命令"></a>13.其他命令</h2><p><code>id</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apricity@qiu ~ % id                                                                                                                                                 [0]</span><br><span class="line">uid=1000(apricity) gid=1000(apricity) groups=1000(apricity),27(sudo)</span><br><span class="line">//用户，组，其他组</span><br></pre></td></tr></table></figure>
+
+
+
+
+<p>1.火车动画</p>
+<p>​    <code>sl</code></p>
+<p>2.<code>apt-build moo</code> </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">apt-build moo </span><br><span class="line"></span><br><span class="line">         (__)    ~</span><br><span class="line">         (oo)   /</span><br><span class="line">     _____\/___/</span><br><span class="line">    /  /\ / /</span><br><span class="line">   ~  /  * /</span><br><span class="line">     / ___/</span><br><span class="line">*----/\</span><br><span class="line">    /  \</span><br><span class="line">   /   /</span><br><span class="line">  ~    ~</span><br><span class="line">...<span class="string">&quot;Have you danced today? Discow!&quot;</span>...</span><br></pre></td></tr></table></figure>
+
+
+<p>3.cowsay</p>
+<p>用ASCII字符打印牛，羊等动物，还有个cowthink，这个是奶牛想，那个是奶牛说，哈哈，差不多</p>
+<p><code>sudo apt-get install cowsay</code></p>
+<p><code>cowsay -f tux &quot;坑爹啊&quot;</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">________</span><br><span class="line">&lt; 坑爹啊 &gt;</span><br><span class="line"> --------</span><br><span class="line">   \</span><br><span class="line">    \</span><br><span class="line">        .--.</span><br><span class="line">       |o_o |</span><br><span class="line">       |:_/ |</span><br><span class="line">      //   \ \</span><br><span class="line">     (|     | )</span><br><span class="line">    /&#x27;\_   _/`\</span><br><span class="line">    \___)=(___/</span><br></pre></td></tr></table></figure>
+
+
+<ol start="4">
+<li><code>cmatrix</code> 命令</li>
+</ol>
+<p>这个很酷！《黑客帝国》那种矩阵风格的动画效果</p>
+<p> <code>sudo apt-get install cmatrix</code></p>
+<p><code>cmatrix</code></p>
+<p><code>q</code>退出</p>
+<h1 id="二、命令系统"><a href="#二、命令系统" class="headerlink" title="二、命令系统"></a>二、命令系统</h1><p>shell、termial、console</p>
+<blockquote>
+<p>shell是一种命令解析器，它给用户提供了一个输入命令并接受机器返回结果的界面。</p>
+</blockquote>
+<p>console控制台，一般console只能有一个</p>
+<p>terminal,它是一个封装程序，一个terminal运行一个shell来扩充为一个具备shell功能的的程序。</p>
+<blockquote>
+<p>console 和 terminal的概念都源自大型机，console可以看作为一个特殊的terminal。现在用的一般都是引申义，一般情况下可以混用。</p>
+</blockquote>
+<p>命令返回值含义</p>
+<p>[0]如果为 0，则表示命令执行成功，其它值则表示错误，</p>
+<p>[1]Operation not permitted</p>
+<p>[2]No such file or directory</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br></pre></td><td class="code"><pre><span class="line">&quot;OS error code   1:  Operation not permitted&quot;</span><br><span class="line"> &quot;OS error code   2:  No such file or directory&quot;</span><br><span class="line"> &quot;OS error code   3:  No such process&quot;</span><br><span class="line"> &quot;OS error code   4:  Interrupted system call&quot;</span><br><span class="line"> &quot;OS error code   5:  Input/output error&quot;</span><br><span class="line"> &quot;OS error code   6:  No such device or address&quot;</span><br><span class="line"> &quot;OS error code   7:  Argument list too long&quot;</span><br><span class="line"> &quot;OS error code   8:  Exec format error&quot;</span><br><span class="line"> &quot;OS error code   9:  Bad file descriptor&quot;</span><br><span class="line"> &quot;OS error code  10:  No child processes&quot;</span><br><span class="line"> &quot;OS error code  11:  Resource temporarily unavailable&quot;</span><br><span class="line"> &quot;OS error code  12:  Cannot allocate memory&quot;</span><br><span class="line"> &quot;OS error code  13:  Permission denied&quot;</span><br><span class="line"> &quot;OS error code  14:  Bad address&quot;</span><br><span class="line"> &quot;OS error code  15:  Block device required&quot;</span><br><span class="line"> &quot;OS error code  16:  Device or resource busy&quot;</span><br><span class="line"> &quot;OS error code  17:  File exists&quot;</span><br><span class="line"> &quot;OS error code  18:  Invalid cross-device link&quot;</span><br><span class="line"> &quot;OS error code  19:  No such device&quot;</span><br><span class="line"> &quot;OS error code  20:  Not a directory&quot;</span><br><span class="line"> &quot;OS error code  21:  Is a directory&quot;</span><br><span class="line"> &quot;OS error code  22:  Invalid argument&quot;</span><br><span class="line"> &quot;OS error code  23:  Too many open files in system&quot;</span><br><span class="line"> &quot;OS error code  24:  Too many open files&quot;</span><br><span class="line"> &quot;OS error code  25:  Inappropriate ioctl for device&quot;</span><br><span class="line"> &quot;OS error code  26:  Text file busy&quot;</span><br><span class="line"> &quot;OS error code  27:  File too large&quot;</span><br><span class="line"> &quot;OS error code  28:  No space left on device&quot;</span><br><span class="line"> &quot;OS error code  29:  Illegal seek&quot;</span><br><span class="line"> &quot;OS error code  30:  Read-only file system&quot;</span><br><span class="line"> &quot;OS error code  31:  Too many links&quot;</span><br><span class="line"> &quot;OS error code  32:  Broken pipe&quot;</span><br><span class="line"> &quot;OS error code  33:  Numerical argument out of domain&quot;</span><br><span class="line"> &quot;OS error code  34:  Numerical result out of range&quot;</span><br><span class="line"> &quot;OS error code  35:  Resource deadlock avoided&quot;</span><br><span class="line"> &quot;OS error code  36:  File name too long&quot;</span><br><span class="line"> &quot;OS error code  37:  No locks available&quot;</span><br><span class="line"> &quot;OS error code  38:  Function not implemented&quot;</span><br><span class="line"> &quot;OS error code  39:  Directory not empty&quot;</span><br><span class="line"> &quot;OS error code  40:  Too many levels of symbolic links&quot;</span><br><span class="line"> &quot;OS error code  42:  No message of desired type&quot;</span><br><span class="line"> &quot;OS error code  43:  Identifier removed&quot;</span><br><span class="line"> &quot;OS error code  44:  Channel number out of range&quot;</span><br><span class="line"> &quot;OS error code  45:  Level 2 not synchronized&quot;</span><br><span class="line"> &quot;OS error code  46:  Level 3 halted&quot;</span><br><span class="line"> &quot;OS error code  47:  Level 3 reset&quot;</span><br><span class="line"> &quot;OS error code  48:  Link number out of range&quot;</span><br><span class="line"> &quot;OS error code  49:  Protocol driver not attached&quot;</span><br><span class="line"> &quot;OS error code  50:  No CSI structure available&quot;</span><br><span class="line"> &quot;OS error code  51:  Level 2 halted&quot;</span><br><span class="line"> &quot;OS error code  52:  Invalid exchange&quot;</span><br><span class="line"> &quot;OS error code  53:  Invalid request descriptor&quot;</span><br><span class="line"> &quot;OS error code  54:  Exchange full&quot;</span><br><span class="line"> &quot;OS error code  55:  No anode&quot;</span><br><span class="line"> &quot;OS error code  56:  Invalid request code&quot;</span><br><span class="line"> &quot;OS error code  57:  Invalid slot&quot;</span><br><span class="line"> &quot;OS error code  59:  Bad font file format&quot;</span><br><span class="line"> &quot;OS error code  60:  Device not a stream&quot;</span><br><span class="line"> &quot;OS error code  61:  No data available&quot;</span><br><span class="line"> &quot;OS error code  62:  Timer expired&quot;</span><br><span class="line"> &quot;OS error code  63:  Out of streams resources&quot;</span><br><span class="line"> &quot;OS error code  64:  Machine is not on the network&quot;</span><br><span class="line"> &quot;OS error code  65:  Package not installed&quot;</span><br><span class="line"> &quot;OS error code  66:  Object is remote&quot;</span><br><span class="line"> &quot;OS error code  67:  Link has been severed&quot;</span><br><span class="line"> &quot;OS error code  68:  Advertise error&quot;</span><br><span class="line"> &quot;OS error code  69:  Srmount error&quot;</span><br><span class="line"> &quot;OS error code  70:  Communication error on send&quot;</span><br><span class="line"> &quot;OS error code  71:  Protocol error&quot;</span><br><span class="line"> &quot;OS error code  72:  Multihop attempted&quot;</span><br><span class="line"> &quot;OS error code  73:  RFS specific error&quot;</span><br><span class="line"> &quot;OS error code  74:  Bad message&quot;</span><br><span class="line"> &quot;OS error code  75:  Value too large for defined data type&quot;</span><br><span class="line"> &quot;OS error code  76:  Name not unique on network&quot;</span><br><span class="line"> &quot;OS error code  77:  File descriptor in bad state&quot;</span><br><span class="line"> &quot;OS error code  78:  Remote address changed&quot;</span><br><span class="line"> &quot;OS error code  79:  Can not access a needed shared library&quot;</span><br><span class="line"> &quot;OS error code  80:  Accessing a corrupted shared library&quot;</span><br><span class="line"> &quot;OS error code  81:  .lib section in a.out corrupted&quot;</span><br><span class="line"> &quot;OS error code  82:  Attempting to link in too many shared libraries&quot;</span><br><span class="line"> &quot;OS error code  83:  Cannot exec a shared library directly&quot;</span><br><span class="line"> &quot;OS error code  84:  Invalid or incomplete multibyte or wide character&quot;</span><br><span class="line"> &quot;OS error code  85:  Interrupted system call should be restarted&quot;</span><br><span class="line"> &quot;OS error code  86:  Streams pipe error&quot;</span><br><span class="line"> &quot;OS error code  87:  Too many users&quot;</span><br><span class="line"> &quot;OS error code  88:  Socket operation on non-socket&quot;</span><br><span class="line"> &quot;OS error code  89:  Destination address required&quot;</span><br><span class="line"> &quot;OS error code  90:  Message too long&quot;</span><br><span class="line"> &quot;OS error code  91:  Protocol wrong type for socket&quot;</span><br><span class="line"> &quot;OS error code  92:  Protocol not available&quot;</span><br><span class="line"> &quot;OS error code  93:  Protocol not supported&quot;</span><br><span class="line"> &quot;OS error code  94:  Socket type not supported&quot;</span><br><span class="line"> &quot;OS error code  95:  Operation not supported&quot;</span><br><span class="line"> &quot;OS error code  96:  Protocol family not supported&quot;</span><br><span class="line"> &quot;OS error code  97:  Address family not supported by protocol&quot;</span><br><span class="line"> &quot;OS error code  98:  Address already in use&quot;</span><br><span class="line"> &quot;OS error code  99:  Cannot assign requested address&quot;</span><br><span class="line"> &quot;OS error code 100:  Network is down&quot;</span><br><span class="line"> &quot;OS error code 101:  Network is unreachable&quot;</span><br><span class="line"> &quot;OS error code 102:  Network dropped connection on reset&quot;</span><br><span class="line"> &quot;OS error code 103:  Software caused connection abort&quot;</span><br><span class="line"> &quot;OS error code 104:  Connection reset by peer&quot;</span><br><span class="line"> &quot;OS error code 105:  No buffer space available&quot;</span><br><span class="line"> &quot;OS error code 106:  Transport endpoint is already connected&quot;</span><br><span class="line"> &quot;OS error code 107:  Transport endpoint is not connected&quot;</span><br><span class="line"> &quot;OS error code 108:  Cannot send after transport endpoint shutdown&quot;</span><br><span class="line"> &quot;OS error code 109:  Too many references: cannot splice&quot;</span><br><span class="line"> &quot;OS error code 110:  Connection timed out&quot;</span><br><span class="line"> &quot;OS error code 111:  Connection refused&quot;</span><br><span class="line"> &quot;OS error code 112:  Host is down&quot;</span><br><span class="line"> &quot;OS error code 113:  No route to host&quot;</span><br><span class="line"> &quot;OS error code 114:  Operation already in progress&quot;</span><br><span class="line"> &quot;OS error code 115:  Operation now in progress&quot;</span><br><span class="line"> &quot;OS error code 116:  Stale NFS file handle&quot;</span><br><span class="line"> &quot;OS error code 117:  Structure needs cleaning&quot;</span><br><span class="line"> &quot;OS error code 118:  Not a XENIX named type file&quot;</span><br><span class="line"> &quot;OS error code 119:  No XENIX semaphores available&quot;</span><br><span class="line"> &quot;OS error code 120:  Is a named type file&quot;</span><br><span class="line"> &quot;OS error code 121:  Remote I/O error&quot;</span><br><span class="line"> &quot;OS error code 122:  Disk quota exceeded&quot;</span><br><span class="line"> &quot;OS error code 123:  No medium found&quot;</span><br><span class="line"> &quot;OS error code 124:  Wrong medium type&quot;</span><br><span class="line"> &quot;OS error code 125:  Operation canceled&quot;</span><br><span class="line"> &quot;OS error code 126:  Required key not available&quot;</span><br><span class="line"> &quot;OS error code 127:  Key has expired&quot;</span><br><span class="line"> &quot;OS error code 128:  Key has been revoked&quot;</span><br><span class="line"> &quot;OS error code 129:  Key was rejected by service&quot;</span><br><span class="line"> &quot;OS error code 130:  Owner died&quot;</span><br><span class="line"> &quot;OS error code 131:  State not recoverable&quot;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="1-Linux帮助系统"><a href="#1-Linux帮助系统" class="headerlink" title="1.Linux帮助系统"></a>1.Linux帮助系统</h2><p><code>man</code>手册</p>
+<p><code>man ls</code></p>
+<p><code>ls(1)ls</code>第一部分</p>
+<p><code>user commands</code> 所属部分：用户命令</p>
+<p><code>info</code>手册</p>
+<p><code>ls --time =atime -l</code> </p>
+<p><code>man scanf</code></p>
+<p><code>linux porgrammer&#39;s manual</code>：所属部分:系统开发者</p>
+<blockquote>
+<p>在学习使用Linux的时候，我们会遇到很多以前没有用过的命令和功能，这个时候最好的解决办法就是求助于<strong>man</strong>.</p>
+</blockquote>
+<p><code>man</code>的使用方法很简单，例如查看<code>ls</code>的帮助手册，可以直接使用命令<code>man ls</code>即可查看<code>ls</code>的命令帮助。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">LS(1)                                       User Commands                                LS(1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">NAME  <span class="comment">#命令全名，简单的说明及用法</span></span><br><span class="line">       ls - list directory contents</span><br><span class="line"></span><br><span class="line">SYNOPSIS <span class="comment">#基本语法</span></span><br><span class="line">       ls [OPTION]... [FILE]...</span><br><span class="line"></span><br><span class="line">DESCRIPTION <span class="comment">#详细说明语法中参数的用法</span></span><br><span class="line">       List information about the FILEs (the current directory by default).  Sort entries alphabeti‐</span><br><span class="line">       cally <span class="keyword">if</span> none of -cftuvSUX nor --sort is specified.</span><br><span class="line"></span><br><span class="line">       Mandatory arguments to long options are mandatory <span class="keyword">for</span> short options too.</span><br><span class="line"></span><br><span class="line">       -a, --all</span><br><span class="line">              <span class="keyword">do</span> not ignore entries starting with .</span><br><span class="line"></span><br><span class="line">       -A, --almost-all</span><br><span class="line">              <span class="keyword">do</span> not list implied . and ..</span><br><span class="line"></span><br><span class="line">       --author</span><br><span class="line">              with -l, <span class="built_in">print</span> the author of each file</span><br><span class="line"> <span class="comment">#中间省略</span></span><br><span class="line">       -1     list one file per line</span><br><span class="line"></span><br><span class="line">       --<span class="built_in">help</span> display this <span class="built_in">help</span> and <span class="built_in">exit</span></span><br><span class="line"></span><br><span class="line">       --version</span><br><span class="line">              output version information and <span class="built_in">exit</span></span><br><span class="line"></span><br><span class="line">       SIZE  may be (or may be an <span class="built_in">integer</span> optionally followed by) one of following: KB 1000, K 1024,</span><br><span class="line">       MB 1000*1000, M 1024*1024, and so on <span class="keyword">for</span> G, T, P, E, Z, Y.</span><br><span class="line"></span><br><span class="line">       Using color to distinguish file types is disabled both by  default  and  with  --color=never.</span><br><span class="line">       With --color=auto, ls emits color codes only when standard output is connected to a terminal.</span><br><span class="line">       The LS_COLORS environment variable can change the settings.  Use the dircolors <span class="built_in">command</span> to <span class="built_in">set</span></span><br><span class="line">       it.</span><br><span class="line"></span><br><span class="line">   Exit status: <span class="comment">#错误返回值</span></span><br><span class="line">       0      <span class="keyword">if</span> OK,</span><br><span class="line"></span><br><span class="line">       1      <span class="keyword">if</span> minor problems (e.g., cannot access subdirectory),</span><br><span class="line"></span><br><span class="line">       2      <span class="keyword">if</span> serious trouble (e.g., cannot access command-line argument).</span><br><span class="line"></span><br><span class="line">AUTHOR  <span class="comment">#作者</span></span><br><span class="line">       Written by Richard M. Stallman and David MacKenzie.</span><br><span class="line"></span><br><span class="line">REPORTING BUGS <span class="comment">#bug提交联系方式</span></span><br><span class="line">       Report ls bugs to bug-coreutils@gnu.org</span><br><span class="line">       GNU coreutils home page: &lt;http://www.gnu.org/software/coreutils/&gt;</span><br><span class="line">       General <span class="built_in">help</span> using GNU software: &lt;http://www.gnu.org/gethelp/&gt;</span><br><span class="line">       Report ls translation bugs to &lt;http://translationproject.org/team/&gt;</span><br><span class="line"></span><br><span class="line">COPYRIGHT  <span class="comment">#版权保护</span></span><br><span class="line">       Copyright  ©  2011 Free Software Foundation, Inc.  License GPLv3+: GNU GPL version 3 or later</span><br><span class="line">       &lt;http://gnu.org/licenses/gpl.html&gt;.</span><br><span class="line">       This is free software: you are free to change and redistribute it.  There is NO WARRANTY,  to</span><br><span class="line">       the extent permitted by law.</span><br><span class="line"></span><br><span class="line">SEE ALSO <span class="comment">##在哪里可以看到更多关于该命令的文档</span></span><br><span class="line">       The full documentation <span class="keyword">for</span> ls is maintained as a Texinfo manual.  If the info and ls programs</span><br><span class="line">       are properly installed at your site, the <span class="built_in">command</span></span><br><span class="line"></span><br><span class="line">              info coreutils <span class="string">&#x27;ls invocation&#x27;</span></span><br><span class="line"></span><br><span class="line">       should give you access to the complete manual.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">GNU coreutils 8.12.197-032bb               September 2011                                      LS(1)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>眼尖的同学应该注意到了手册中开头和结尾的地方写的<code>LS(1)</code>了，那么这是什么意思呢？它代表的是一般用户可使用的命令。</p>
+</blockquote>
+<p>在man中，常见的几个数字的含义如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th align="center">代号</th>
+<th align="left">代表的含义</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1</td>
+<td align="left">用户在shell环境下可以操作的命令或可执行文件</td>
+<td><code>man 1 ls</code></td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="left">系统内核可调用的函数和工具</td>
+<td><code>man 2 reboot</code></td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="left">一些常用的函数与函数库，大部分C的函数库</td>
+<td><code>man 3 readdir</code></td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="left">设备文件的说明，通常是在<code>/dev</code>下的设备</td>
+<td><code>man 4 null</code></td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="left">配置文件或某些文件的格式</td>
+<td><code>man 5 interfaces</code></td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="left">游戏</td>
+<td><code>man 6 lol</code> 😂</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="left">惯例与协议等，例如Linux文件系统，网络协议等</td>
+<td><code>man 7 tcp</code></td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="left">系统管理员可用的命令</td>
+<td><code>man 8 reboot</code></td>
+</tr>
+<tr>
+<td align="center">9</td>
+<td align="left">跟kernel有关的文件</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">o</td>
+<td align="left">旧文档</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">n</td>
+<td align="left">新文档</td>
+<td></td>
+</tr>
+<tr>
+<td align="center">l</td>
+<td align="left">本地文档</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>在man手册中，我们可以用到的快捷键如下：</p>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>功能</th>
+<th>快捷键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Ctrl+f(orward)</td>
+<td>向下翻一页</td>
+<td>Ctrl+d(own)</td>
+<td>向下翻半页</td>
+</tr>
+<tr>
+<td>Ctrl+b(ackward)</td>
+<td>向上翻一页</td>
+<td>Ctrl+u(p)</td>
+<td>向上翻半页</td>
+</tr>
+<tr>
+<td>/</td>
+<td>查找</td>
+<td>q(uit)</td>
+<td>退出</td>
+</tr>
+</tbody></table>
+<p>随堂练习：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">man -f            #whatis</span><br><span class="line">man -k            #apropos</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在Linux中还有一种在线求助的方式<code>info</code>,有兴趣的可以了解一下。</p>
+</blockquote>
+<h2 id="2-linux常用命令"><a href="#2-linux常用命令" class="headerlink" title="2.linux常用命令"></a>2.linux常用命令</h2><p>1.文件及目录相关，文件内容的修改与查看</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ls</code>查看目录下内容</td>
+<td><code>cd</code>目录跳转</td>
+</tr>
+<tr>
+<td><code>pwd</code>打印工作目录</td>
+<td><code>cp</code>拷贝</td>
+</tr>
+<tr>
+<td><code>mv</code>移动文件及目录</td>
+<td><code>rm</code>删除文件及目录</td>
+</tr>
+<tr>
+<td><code>mkdir</code>创建目录</td>
+<td><code>tree</code>打印目录树</td>
+</tr>
+<tr>
+<td><code>tar</code>文件归档与压缩</td>
+<td><code>ln</code>创建链接文件</td>
+</tr>
+<tr>
+<td><code>touch</code>创建空白文件</td>
+<td><code>head</code>查看文件头部</td>
+</tr>
+<tr>
+<td><code>cat</code>查看文件内容</td>
+<td>tail查看文件尾部</td>
+</tr>
+<tr>
+<td><code>vim</code>文本编辑器</td>
+<td><code>diff</code>对比文件</td>
+</tr>
+<tr>
+<td><code>echo</code>打印文本</td>
+<td><code>grep</code>检索信息</td>
+</tr>
+<tr>
+<td><code>more</code>分页查看文件</td>
+<td><code>wc</code>计数</td>
+</tr>
+<tr>
+<td><code>less</code>分页查看文件</td>
+<td><code>find</code>查找文件</td>
+</tr>
+<tr>
+<td><code>which</code>查找可执行文件</td>
+<td><code>whereis</code>查找可执行、源码、帮助手册</td>
+</tr>
+<tr>
+<td><code>locate</code>定位任何文件</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>2.用户相关命令，进程相关命令</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>useradd</code>新建用户</td>
+<td><code>chgrp</code>修改所属组</td>
+</tr>
+<tr>
+<td><code>userdel</code>删除用户</td>
+<td><code>chmod</code>修改文件权限</td>
+</tr>
+<tr>
+<td><code>usermod</code>修改用户</td>
+<td><code>chown</code>修改文件所属用户</td>
+</tr>
+<tr>
+<td><code>passwd</code>修改密码</td>
+<td><code>logout</code>退出用户</td>
+</tr>
+<tr>
+<td><code>su</code>切换用户</td>
+<td><code>exit</code>退出用户</td>
+</tr>
+<tr>
+<td><code>sudo</code>获取管理员权限</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ps</code>打印进程</td>
+<td><code>ctrl+z</code>挂起前台任务</td>
+</tr>
+<tr>
+<td><code>kill</code>杀死进程</td>
+<td><code>fg</code>将进程调至前台运行</td>
+</tr>
+<tr>
+<td><code>pkill</code>批量杀死进程</td>
+<td><code>bg</code>让挂起的进程后台执行</td>
+</tr>
+<tr>
+<td><code>killall</code>批量杀死进程</td>
+<td><code>jobs</code>查看挂起和后台进程</td>
+</tr>
+<tr>
+<td><code>crotab</code>定时任务</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>3.系统信息命令获取</p>
+<table>
+<thead>
+<tr>
+<th><code>date</code> 查看时间</th>
+<th><code>dstat</code>查看系统信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>df</code>查看文件系统</td>
+<td><code>nmon</code>查看系统信息</td>
+</tr>
+<tr>
+<td><code>du</code>获取目录文件大小</td>
+<td><code>ifconfig</code>查看IP信息</td>
+</tr>
+<tr>
+<td><code>free</code>查看内存</td>
+<td><code>uname</code>查看OS信息</td>
+</tr>
+<tr>
+<td><code>top</code>查看系统信息</td>
+<td><code>last</code>查看最近登录</td>
+</tr>
+<tr>
+<td><code>htop</code>查看系统信息</td>
+<td><code>who</code>查看当前登录</td>
+</tr>
+</tbody></table>
+<p>4.其他命令</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ssh</code>远程连接</td>
+<td><code>poweroff</code>关机</td>
+</tr>
+<tr>
+<td><code>scp</code>远程拷贝</td>
+<td><code>reboot</code>重启</td>
+</tr>
+<tr>
+<td><code>wget</code>获取<code>http</code>文件</td>
+<td></td>
+</tr>
+<tr>
+<td><code>ping</code>测试远程主机</td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id="三、zsh"><a href="#三、zsh" class="headerlink" title="三、zsh"></a>三、zsh</h1><h3 id="1-通配符"><a href="#1-通配符" class="headerlink" title="1.通配符"></a>1.通配符</h3><ul>
+<li><p>？</p>
+<p>代表<strong>单个任意字符</strong></p>
+</li>
+<li><p>*</p>
+<p>代表<strong>任意几个任意字符</strong></p>
+</li>
+</ul>
+<blockquote>
+<p>请看下面的例子，并自己动手尝试一下通配符的使用</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">suyelu@HaiZei-Tech:~$ ls</span><br><span class="line">a.log  code  HaiZei  helloworld  你好world</span><br><span class="line">suyelu@HaiZei-Tech:~$ ls *ld</span><br><span class="line">helloworld  你好world</span><br><span class="line">suyelu@HaiZei-Tech:~$ ls ??world</span><br><span class="line">你好world</span><br><span class="line">suyelu@HaiZei-Tech:~$ ls ?????world</span><br><span class="line">helloworld</span><br><span class="line">suyelu@HaiZei-Tech:~$</span><br></pre></td></tr></table></figure>
+<p>除了*<strong>**和</strong>?**这两个通配符之外，Linux中还有下面几种通配符</p>
+<table>
+<thead>
+<tr>
+<th>通配符</th>
+<th>含义</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>[list]</td>
+<td>匹配list中的任意单一字符</td>
+<td>a[xyz]b  a与b之间有且只有一个字符, 且只能是x或y或z, 如: axb, ayb, azb。</td>
+</tr>
+<tr>
+<td>[!list]</td>
+<td>匹配除list中的任意单一字符</td>
+<td>a[!0-9]b  a与b之间有且只有一个字符, 但不能是数字, 如axb, aab, a-b等</td>
+</tr>
+<tr>
+<td>[c1-c2]</td>
+<td>匹配c1-c2中的任意单一字符</td>
+<td>a[0-9]b  a与b之间有且只有一个字符，该字符是0-9之间的数字，如a0b, a1b，… ，a9b。</td>
+</tr>
+<tr>
+<td>{string1,string2,…}</td>
+<td>匹配 sring1 或 string2 (或更多)其一字符串</td>
+<td>a{abc,xyz,123}b    a与b之间只能是abc或xyz或123这三个字符串之一。</td>
+</tr>
+</tbody></table>
+<h3 id="2-任务管理"><a href="#2-任务管理" class="headerlink" title="2.任务管理"></a>2.任务管理</h3><p><code>PATH=$&#123;PATH&#125;:.</code></p>
+<p>locate</p>
+<p>1.<code>&amp;</code></p>
+<p>在命令的后面加上**<code>&amp;</code>**表示后台执行的意思</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">command &amp;</span><br></pre></td></tr></table></figure>
+
+
+<p>2.<code>;</code></p>
+<p>在命令之间以**<code>;</code>**相连，表示顺序执行的意思</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">command1;command2</span><br></pre></td></tr></table></figure>
+<p>3.<strong><code>&amp;&amp;</code></strong></p>
+<p>命令之间以**<code>&amp;&amp;</code>**相连时，只有第一个命令成功执行，第二个命令才会执行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">command1 &amp;&amp; command2</span><br></pre></td></tr></table></figure>
+
+
+<p>4.<strong><code>||</code></strong></p>
+<p>命令之间以**<code>||</code>**相连时，如果前一个命令执行失败，则执行第二个命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">command1 || command2</span><br></pre></td></tr></table></figure>
+<p>5.<strong><code>``</code></strong></p>
+<p>命令中如果包含另一个命令，则用符号**<code>** 将它包括起来，在执行的时候系统将优先执行**</code>**中的子命令，然后将其结果代入父命令继续执行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">command1 `command2`</span><br></pre></td></tr></table></figure>
+<p>6.<strong><code>ctrl + z</code></strong></p>
+<p>在shell中执行命令时，同时按下**<code>ctrl + z</code>**可以将暂时挂起</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">suyelu@HaiZei-Tech:~$ vim helloworld.c</span><br><span class="line"></span><br><span class="line">[1]+  Stopped                 vim helloworld.c</span><br><span class="line">suyelu@HaiZei-Tech:~$</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>什么是挂起？</p>
+</blockquote>
+<ol start="7">
+<li><p><strong><code>bg</code></strong></p>
+<p>执行**<code>bg</code>**命令，可以将挂起的命令后台运行</p>
+</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">suyelu@HaiZei-Tech:~$ vim helloworld.c</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">[1]+  Stopped                 vim helloworld.c</span><br><span class="line">suyelu@HaiZei-Tech:~$ bg</span><br><span class="line">[1]+ vim helloworld.c &amp;</span><br><span class="line">suyelu@HaiZei-Tech:~$</span><br></pre></td></tr></table></figure>
+
+
+<ol start="8">
+<li><p><strong><code>fg</code></strong></p>
+<p>执行命令**<code>fg</code>**可以将后台执行的命令转为前台执行</p>
+</li>
+<li><p><strong><code>jobs</code></strong></p>
+<p>在Linux系统中，执行**<code>jobs</code>**命令可以查看所有在后台执行和挂起的任务以及任务编号</p>
+</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">suyelu@HaiZei-Tech:~/code$ jobs</span><br><span class="line">[1]-  Stopped                 vim a.c  (wd: ~)</span><br><span class="line">[2]+  Stopped                 vim b.c  (wd: ~)</span><br><span class="line">[3]   Running                 ./a.out &amp;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>尝试执行<strong>fg</strong>和<strong>bg</strong>加上任务编号，看看是什么效果</p>
+</blockquote>
+<p>%没有输入换行符zsh输出一个%座位标记</p>
+<p>/tmp零时文件夹</p>
+<p>BIOS：开机检测</p>
+<blockquote>
+<p>检测硬件环境</p>
+<p>Boot Loader读内核文件</p>
+<p>/sbin/init 启动进程</p>
+<p>加载磁盘</p>
+</blockquote>
+<p>guziqiu: x :</p>
+<p>x代表密码占位符</p>
+<h3 id="3-管道、重定向"><a href="#3-管道、重定向" class="headerlink" title="3.管道、重定向"></a>3.管道、重定向</h3><ol>
+<li><p><code>&gt;</code></p>
+<p>重定向符</p>
+</li>
+<li><p><code>&gt;&gt;</code></p>
+<p>作用于**&gt;<strong>基本相同，不同的是</strong>&gt;&gt;<strong>将内容追加到文件的末尾，而</strong>&gt;**内容覆盖原文件</p>
+</li>
+<li><p><code>&lt;</code></p>
+<p>与**&gt;**刚好相反，是从文件到命令的重定向。它将文件的内容输出到命令作为输入</p>
+</li>
+<li><p><code>&lt;&lt;</code> 标记文件结尾</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat &gt;&gt; &#x2F;etc&#x2F;sysconfig&#x2F;network &lt;&lt; EOF</span><br><span class="line">HOSTNAME&#x3D;$HOST_NAME</span><br><span class="line">EOF </span><br></pre></td></tr></table></figure>
+<h3 id="4-转义符"><a href="#4-转义符" class="headerlink" title="4.转义符"></a>4.转义符</h3><blockquote>
+<p>在Linux中转义符**<code>\</code><strong>的应用十分广泛，除此之外，转义符还包括</strong>“”<strong>和</strong>‘’**。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>‘’</td>
+<td>硬转义,硬引用，其内部所有的shell元字符、通配符都会被关掉。注意，硬转义中不允许出现’(单引号)。</td>
+</tr>
+<tr>
+<td>“”</td>
+<td>软转义，软引用，其内部只允许出现特定的shell元字符($,`,\)：$用于变量值替换、`用于命令替换、\用于转义单个字符</td>
+</tr>
+<tr>
+<td>\</td>
+<td>反斜杠，转义，去除其后紧跟的元字符或通配符的特殊意义。</td>
+</tr>
+</tbody></table>
+<p>下表是部分转义字符对应表：</p>
+<table>
+<thead>
+<tr>
+<th>转义字符</th>
+<th>意义</th>
+<th>ASCII码值（十进制）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>\a</td>
+<td>响铃(BEL)</td>
+<td>007</td>
+</tr>
+<tr>
+<td>\b</td>
+<td>退格(BS) ，将当前位置移到前一列</td>
+<td>008</td>
+</tr>
+<tr>
+<td>\f</td>
+<td>换页(FF)，将当前位置移到下页开头</td>
+<td>012</td>
+</tr>
+<tr>
+<td>\n</td>
+<td>换行(LF) ，将当前位置移到下一行开头</td>
+<td>010</td>
+</tr>
+<tr>
+<td>\r</td>
+<td>回车(CR) ，将当前位置移到本行开头</td>
+<td>013</td>
+</tr>
+<tr>
+<td>\t</td>
+<td>水平制表(HT) （跳到下一个TAB位置）</td>
+<td>009</td>
+</tr>
+<tr>
+<td>\v</td>
+<td>垂直制表(VT)</td>
+<td>011</td>
+</tr>
+<tr>
+<td>\\</td>
+<td>代表一个反斜线字符’’&#39;</td>
+<td>092</td>
+</tr>
+<tr>
+<td>&#39;</td>
+<td>代表一个单引号（撇号）字符</td>
+<td>039</td>
+</tr>
+<tr>
+<td>&quot;</td>
+<td>代表一个双引号字符</td>
+<td>034</td>
+</tr>
+<tr>
+<td>?</td>
+<td>代表一个问号</td>
+<td>063</td>
+</tr>
+<tr>
+<td>\0</td>
+<td>空字符(NULL)</td>
+<td>000</td>
+</tr>
+<tr>
+<td>\nnn</td>
+<td>1到3位八进制数所代表的任意字符</td>
+<td>三位八进制</td>
+</tr>
+<tr>
+<td>\xnnn</td>
+<td>1到3位十六进制所代表的任意字符</td>
+<td>三位十六进制</td>
+</tr>
+</tbody></table>
+<h4 id="转义符在Shell中的应用"><a href="#转义符在Shell中的应用" class="headerlink" title="转义符在Shell中的应用"></a>转义符在Shell中的应用</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">suyelu@HaiZei-Tech:~$ echo -e &quot;\044&quot;</span><br><span class="line"><span class="meta">$</span></span><br><span class="line"><span class="bash">suyelu@HaiZei-Tech:~$ <span class="built_in">echo</span>  <span class="string">&quot;\044&quot;</span></span></span><br><span class="line">\044</span><br><span class="line">suyelu@HaiZei-Tech:~$ echo  $&#x27;\044&#x27;</span><br><span class="line"><span class="meta">$</span></span><br><span class="line"><span class="bash">suyelu@HaiZei-Tech:~$ <span class="built_in">echo</span>  $<span class="string">&#x27;\44&#x27;</span></span></span><br><span class="line"><span class="meta">$</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<h2 id="附录1-Shell元字符"><a href="#附录1-Shell元字符" class="headerlink" title="附录1 Shell元字符"></a>附录1 Shell元字符</h2><blockquote>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>=</td>
+<td>变量名=值，为变量赋值。注意=左右紧跟变量名和值，中间不要有空格</td>
+</tr>
+<tr>
+<td>``</td>
+<td>取命令的执行结果，与下文的$有相似之处</td>
+</tr>
+<tr>
+<td>$</td>
+<td>变量值替换，$变量名替换为shell变量的值;为避免在文本连接时混淆，请使用${变量名};$0…$9 代表shell文件的参数。**$()<strong>同``;</strong>${}<strong>限定变量名的范围；</strong>$[]**整数计算；</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>prog &gt; file 将标准输出重定向到文件。</td>
+</tr>
+<tr>
+<td>&gt;&gt;</td>
+<td>prog &gt;&gt; file 将标准输出追加到文件。</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>prog &lt; file 从文件file中获取标准输入</td>
+</tr>
+<tr>
+<td>&lt;&lt;</td>
+<td></td>
+</tr>
+<tr>
+<td>|</td>
+<td>管道命令，例：p1 | p2 将p1的标准输出作为p2的标准输入</td>
+</tr>
+<tr>
+<td>&amp;</td>
+<td>后台运行命令，最大好处是无需等待命令执行结束，就可以在同一命令行下继续输入命令</td>
+</tr>
+<tr>
+<td>()</td>
+<td>在子shell中执行命令,在子进程中执行</td>
+</tr>
+<tr>
+<td>{}</td>
+<td>在当前shell中执行命令，或用在变量替换的界定范围(例如上面的${变量名}用法)。</td>
+</tr>
+<tr>
+<td>[]</td>
+<td>字符通配，匹配括号内之一</td>
+</tr>
+<tr>
+<td>;</td>
+<td>命令结束符。例如p1;p2表示先执行p1,再执行p2</td>
+</tr>
+<tr>
+<td>&amp;&amp;</td>
+<td>前一个命令执行成功后，才继续执行下一个命令。例：p1 &amp;&amp; p2 ;若p1执行成功后，才执行p2,反之，不执行p2;</td>
+</tr>
+<tr>
+<td>||</td>
+<td>前一个命令执行失败后，才继续执行下一个命令。例：p1 || p2 ;若p1执行成功后，不执行p2,反之，才执行p2;</td>
+</tr>
+<tr>
+<td>!</td>
+<td>执行历史记录中的命令**!731**;匹配最近的一次命令**!echo**;取非<strong>ls /dev/sda[!1]</strong>;结果取反**! echo ok ;echo $?**</td>
+</tr>
+<tr>
+<td>%</td>
+<td><strong>% 1</strong>相当于<strong>fg 1</strong></td>
+</tr>
+<tr>
+<td>^</td>
+<td>取非，和**!<strong>雷同；</strong><code>^string1^string2^</code>**将上一命令的string1替换为string2</td>
+</tr>
+<tr>
+<td>~</td>
+<td>home目录</td>
+</tr>
+<tr>
+<td>#</td>
+<td>注释</td>
+</tr>
+<tr>
+<td>*</td>
+<td>通配符，任意字符</td>
+</tr>
+<tr>
+<td>?</td>
+<td>通配符，任一字符</td>
+</tr>
+<tr>
+<td>.</td>
+<td>当前目录；source</td>
+</tr>
+<tr>
+<td>-</td>
+<td>减号；上次工作目录</td>
+</tr>
+<tr>
+<td>:</td>
+<td>真值；空命令</td>
+</tr>
+<tr>
+<td>\</td>
+<td>转义</td>
+</tr>
+<tr>
+<td>/</td>
+<td>目录分割符</td>
+</tr>
+</tbody></table>
+<h2 id="附录2-ASCII码-对照表"><a href="#附录2-ASCII码-对照表" class="headerlink" title="附录2 ASCII码 对照表"></a>附录2 ASCII码 对照表</h2><table>
+<thead>
+<tr>
+<th>Bin(二进制)</th>
+<th>Oct(八进制)</th>
+<th>Dec(十进制)</th>
+<th>Hex(十六进制)</th>
+<th>缩写/字符</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0000 0000</td>
+<td>0</td>
+<td>0</td>
+<td>00</td>
+<td>NUL(null)</td>
+<td>空字符</td>
+</tr>
+<tr>
+<td>0000 0001</td>
+<td>1</td>
+<td>1</td>
+<td>01</td>
+<td>SOH(start of headline)</td>
+<td>标题开始</td>
+</tr>
+<tr>
+<td>0000 0010</td>
+<td>2</td>
+<td>2</td>
+<td>02</td>
+<td>STX (start of text)</td>
+<td>正文开始</td>
+</tr>
+<tr>
+<td>0000 0011</td>
+<td>3</td>
+<td>3</td>
+<td>03</td>
+<td>ETX (end of text)</td>
+<td>正文结束</td>
+</tr>
+<tr>
+<td>0000 0100</td>
+<td>4</td>
+<td>4</td>
+<td>04</td>
+<td>EOT (end of transmission)</td>
+<td>传输结束</td>
+</tr>
+<tr>
+<td>0000 0101</td>
+<td>5</td>
+<td>5</td>
+<td>05</td>
+<td>ENQ (enquiry)</td>
+<td>请求</td>
+</tr>
+<tr>
+<td>0000 0110</td>
+<td>6</td>
+<td>6</td>
+<td>06</td>
+<td>ACK (acknowledge)</td>
+<td>收到通知</td>
+</tr>
+<tr>
+<td>0000 0111</td>
+<td>7</td>
+<td>7</td>
+<td>07</td>
+<td>BEL (bell)</td>
+<td>响铃</td>
+</tr>
+<tr>
+<td>0000 1000</td>
+<td>10</td>
+<td>8</td>
+<td>08</td>
+<td>BS (backspace)</td>
+<td>退格</td>
+</tr>
+<tr>
+<td>0000 1001</td>
+<td>11</td>
+<td>9</td>
+<td>09</td>
+<td>HT (horizontal tab)</td>
+<td>水平制表符</td>
+</tr>
+<tr>
+<td>0000 1010</td>
+<td>12</td>
+<td>10</td>
+<td>0A</td>
+<td>LF (NL line feed, new line)</td>
+<td>换行键</td>
+</tr>
+<tr>
+<td>0000 1011</td>
+<td>13</td>
+<td>11</td>
+<td>0B</td>
+<td>VT (vertical tab)</td>
+<td>垂直制表符</td>
+</tr>
+<tr>
+<td>0000 1100</td>
+<td>14</td>
+<td>12</td>
+<td>0C</td>
+<td>FF (NP form feed, new page)</td>
+<td>换页键</td>
+</tr>
+<tr>
+<td>0000 1101</td>
+<td>15</td>
+<td>13</td>
+<td>0D</td>
+<td>CR (carriage return)</td>
+<td>回车键</td>
+</tr>
+<tr>
+<td>0000 1110</td>
+<td>16</td>
+<td>14</td>
+<td>0E</td>
+<td>SO (shift out)</td>
+<td>不用切换</td>
+</tr>
+<tr>
+<td>0000 1111</td>
+<td>17</td>
+<td>15</td>
+<td>0F</td>
+<td>SI (shift in)</td>
+<td>启用切换</td>
+</tr>
+<tr>
+<td>0001 0000</td>
+<td>20</td>
+<td>16</td>
+<td>10</td>
+<td>DLE (data link escape)</td>
+<td>数据链路转义</td>
+</tr>
+<tr>
+<td>0001 0001</td>
+<td>21</td>
+<td>17</td>
+<td>11</td>
+<td>DC1 (device control 1)</td>
+<td>设备控制1</td>
+</tr>
+<tr>
+<td>0001 0010</td>
+<td>22</td>
+<td>18</td>
+<td>12</td>
+<td>DC2 (device control 2)</td>
+<td>设备控制2</td>
+</tr>
+<tr>
+<td>0001 0011</td>
+<td>23</td>
+<td>19</td>
+<td>13</td>
+<td>DC3 (device control 3)</td>
+<td>设备控制3</td>
+</tr>
+<tr>
+<td>0001 0100</td>
+<td>24</td>
+<td>20</td>
+<td>14</td>
+<td>DC4 (device control 4)</td>
+<td>设备控制4</td>
+</tr>
+<tr>
+<td>0001 0101</td>
+<td>25</td>
+<td>21</td>
+<td>15</td>
+<td>NAK (negative acknowledge)</td>
+<td>拒绝接收</td>
+</tr>
+<tr>
+<td>0001 0110</td>
+<td>26</td>
+<td>22</td>
+<td>16</td>
+<td>SYN (synchronous idle)</td>
+<td>同步空闲</td>
+</tr>
+<tr>
+<td>0001 0111</td>
+<td>27</td>
+<td>23</td>
+<td>17</td>
+<td>ETB (end of trans. block)</td>
+<td>结束传输块</td>
+</tr>
+<tr>
+<td>0001 1000</td>
+<td>30</td>
+<td>24</td>
+<td>18</td>
+<td>CAN (cancel)</td>
+<td>取消</td>
+</tr>
+<tr>
+<td>0001 1001</td>
+<td>31</td>
+<td>25</td>
+<td>19</td>
+<td>EM (end of medium)</td>
+<td>媒介结束</td>
+</tr>
+<tr>
+<td>0001 1010</td>
+<td>32</td>
+<td>26</td>
+<td>1A</td>
+<td>SUB (substitute)</td>
+<td>代替</td>
+</tr>
+<tr>
+<td>0001 1011</td>
+<td>33</td>
+<td>27</td>
+<td>1B</td>
+<td>ESC (escape)</td>
+<td>换码(溢出)</td>
+</tr>
+<tr>
+<td>0001 1100</td>
+<td>34</td>
+<td>28</td>
+<td>1C</td>
+<td>FS (file separator)</td>
+<td>文件分隔符</td>
+</tr>
+<tr>
+<td>0001 1101</td>
+<td>35</td>
+<td>29</td>
+<td>1D</td>
+<td>GS (group separator)</td>
+<td>分组符</td>
+</tr>
+<tr>
+<td>0001 1110</td>
+<td>36</td>
+<td>30</td>
+<td>1E</td>
+<td>RS (record separator)</td>
+<td>记录分隔符</td>
+</tr>
+<tr>
+<td>0001 1111</td>
+<td>37</td>
+<td>31</td>
+<td>1F</td>
+<td>US (unit separator)</td>
+<td>单元分隔符</td>
+</tr>
+<tr>
+<td>0010 0000</td>
+<td>40</td>
+<td>32</td>
+<td>20</td>
+<td>(space)</td>
+<td>空格</td>
+</tr>
+<tr>
+<td>0010 0001</td>
+<td>41</td>
+<td>33</td>
+<td>21</td>
+<td>!</td>
+<td>叹号</td>
+</tr>
+<tr>
+<td>0010 0010</td>
+<td>42</td>
+<td>34</td>
+<td>22</td>
+<td>“</td>
+<td>双引号</td>
+</tr>
+<tr>
+<td>0010 0011</td>
+<td>43</td>
+<td>35</td>
+<td>23</td>
+<td>#</td>
+<td>井号</td>
+</tr>
+<tr>
+<td>0010 0100</td>
+<td>44</td>
+<td>36</td>
+<td>24</td>
+<td>$</td>
+<td>美元符</td>
+</tr>
+<tr>
+<td>0010 0101</td>
+<td>45</td>
+<td>37</td>
+<td>25</td>
+<td>%</td>
+<td>百分号</td>
+</tr>
+<tr>
+<td>0010 0110</td>
+<td>46</td>
+<td>38</td>
+<td>26</td>
+<td>&amp;</td>
+<td>和号</td>
+</tr>
+<tr>
+<td>0010 0111</td>
+<td>47</td>
+<td>39</td>
+<td>27</td>
+<td>‘</td>
+<td>闭单引号</td>
+</tr>
+<tr>
+<td>0010 1000</td>
+<td>50</td>
+<td>40</td>
+<td>28</td>
+<td>(</td>
+<td>开括号</td>
+</tr>
+<tr>
+<td>0010 1001</td>
+<td>51</td>
+<td>41</td>
+<td>29</td>
+<td>)</td>
+<td>闭括号</td>
+</tr>
+<tr>
+<td>0010 1010</td>
+<td>52</td>
+<td>42</td>
+<td>2A</td>
+<td>*</td>
+<td>星号</td>
+</tr>
+<tr>
+<td>0010 1011</td>
+<td>53</td>
+<td>43</td>
+<td>2B</td>
+<td>+</td>
+<td>加号</td>
+</tr>
+<tr>
+<td>0010 1100</td>
+<td>54</td>
+<td>44</td>
+<td>2C</td>
+<td>,</td>
+<td>逗号</td>
+</tr>
+<tr>
+<td>0010 1101</td>
+<td>55</td>
+<td>45</td>
+<td>2D</td>
+<td>-</td>
+<td>减号/破折号</td>
+</tr>
+<tr>
+<td>0010 1110</td>
+<td>56</td>
+<td>46</td>
+<td>2E</td>
+<td>.</td>
+<td>句号</td>
+</tr>
+<tr>
+<td>00101111</td>
+<td>57</td>
+<td>47</td>
+<td>2F</td>
+<td>/</td>
+<td>斜杠</td>
+</tr>
+<tr>
+<td>00110000</td>
+<td>60</td>
+<td>48</td>
+<td>30</td>
+<td>0</td>
+<td>数字0</td>
+</tr>
+<tr>
+<td>00110001</td>
+<td>61</td>
+<td>49</td>
+<td>31</td>
+<td>1</td>
+<td>数字1</td>
+</tr>
+<tr>
+<td>00110010</td>
+<td>62</td>
+<td>50</td>
+<td>32</td>
+<td>2</td>
+<td>数字2</td>
+</tr>
+<tr>
+<td>00110011</td>
+<td>63</td>
+<td>51</td>
+<td>33</td>
+<td>3</td>
+<td>数字3</td>
+</tr>
+<tr>
+<td>00110100</td>
+<td>64</td>
+<td>52</td>
+<td>34</td>
+<td>4</td>
+<td>数字4</td>
+</tr>
+<tr>
+<td>00110101</td>
+<td>65</td>
+<td>53</td>
+<td>35</td>
+<td>5</td>
+<td>数字5</td>
+</tr>
+<tr>
+<td>00110110</td>
+<td>66</td>
+<td>54</td>
+<td>36</td>
+<td>6</td>
+<td>数字6</td>
+</tr>
+<tr>
+<td>00110111</td>
+<td>67</td>
+<td>55</td>
+<td>37</td>
+<td>7</td>
+<td>数字7</td>
+</tr>
+<tr>
+<td>00111000</td>
+<td>70</td>
+<td>56</td>
+<td>38</td>
+<td>8</td>
+<td>数字8</td>
+</tr>
+<tr>
+<td>00111001</td>
+<td>71</td>
+<td>57</td>
+<td>39</td>
+<td>9</td>
+<td>数字9</td>
+</tr>
+<tr>
+<td>00111010</td>
+<td>72</td>
+<td>58</td>
+<td>3A</td>
+<td>:</td>
+<td>冒号</td>
+</tr>
+<tr>
+<td>00111011</td>
+<td>73</td>
+<td>59</td>
+<td>3B</td>
+<td>;</td>
+<td>分号</td>
+</tr>
+<tr>
+<td>00111100</td>
+<td>74</td>
+<td>60</td>
+<td>3C</td>
+<td>&lt;</td>
+<td>小于</td>
+</tr>
+<tr>
+<td>00111101</td>
+<td>75</td>
+<td>61</td>
+<td>3D</td>
+<td>=</td>
+<td>等号</td>
+</tr>
+<tr>
+<td>00111110</td>
+<td>76</td>
+<td>62</td>
+<td>3E</td>
+<td>&gt;</td>
+<td>大于</td>
+</tr>
+<tr>
+<td>00111111</td>
+<td>77</td>
+<td>63</td>
+<td>3F</td>
+<td>?</td>
+<td>问号</td>
+</tr>
+<tr>
+<td>01000000</td>
+<td>100</td>
+<td>64</td>
+<td>40</td>
+<td>@</td>
+<td>电子邮件符号</td>
+</tr>
+<tr>
+<td>01000001</td>
+<td>101</td>
+<td>65</td>
+<td>41</td>
+<td>A</td>
+<td>大写字母A</td>
+</tr>
+<tr>
+<td>01000010</td>
+<td>102</td>
+<td>66</td>
+<td>42</td>
+<td>B</td>
+<td>大写字母B</td>
+</tr>
+<tr>
+<td>01000011</td>
+<td>103</td>
+<td>67</td>
+<td>43</td>
+<td>C</td>
+<td>大写字母C</td>
+</tr>
+<tr>
+<td>01000100</td>
+<td>104</td>
+<td>68</td>
+<td>44</td>
+<td>D</td>
+<td>大写字母D</td>
+</tr>
+<tr>
+<td>01000101</td>
+<td>105</td>
+<td>69</td>
+<td>45</td>
+<td>E</td>
+<td>大写字母E</td>
+</tr>
+<tr>
+<td>01000110</td>
+<td>106</td>
+<td>70</td>
+<td>46</td>
+<td>F</td>
+<td>大写字母F</td>
+</tr>
+<tr>
+<td>01000111</td>
+<td>107</td>
+<td>71</td>
+<td>47</td>
+<td>G</td>
+<td>大写字母G</td>
+</tr>
+<tr>
+<td>01001000</td>
+<td>110</td>
+<td>72</td>
+<td>48</td>
+<td>H</td>
+<td>大写字母H</td>
+</tr>
+<tr>
+<td>01001001</td>
+<td>111</td>
+<td>73</td>
+<td>49</td>
+<td>I</td>
+<td>大写字母I</td>
+</tr>
+<tr>
+<td>01001010</td>
+<td>112</td>
+<td>74</td>
+<td>4A</td>
+<td>J</td>
+<td>大写字母J</td>
+</tr>
+<tr>
+<td>01001011</td>
+<td>113</td>
+<td>75</td>
+<td>4B</td>
+<td>K</td>
+<td>大写字母K</td>
+</tr>
+<tr>
+<td>01001100</td>
+<td>114</td>
+<td>76</td>
+<td>4C</td>
+<td>L</td>
+<td>大写字母L</td>
+</tr>
+<tr>
+<td>01001101</td>
+<td>115</td>
+<td>77</td>
+<td>4D</td>
+<td>M</td>
+<td>大写字母M</td>
+</tr>
+<tr>
+<td>01001110</td>
+<td>116</td>
+<td>78</td>
+<td>4E</td>
+<td>N</td>
+<td>大写字母N</td>
+</tr>
+<tr>
+<td>01001111</td>
+<td>117</td>
+<td>79</td>
+<td>4F</td>
+<td>O</td>
+<td>大写字母O</td>
+</tr>
+<tr>
+<td>01010000</td>
+<td>120</td>
+<td>80</td>
+<td>50</td>
+<td>P</td>
+<td>大写字母P</td>
+</tr>
+<tr>
+<td>01010001</td>
+<td>121</td>
+<td>81</td>
+<td>51</td>
+<td>Q</td>
+<td>大写字母Q</td>
+</tr>
+<tr>
+<td>01010010</td>
+<td>122</td>
+<td>82</td>
+<td>52</td>
+<td>R</td>
+<td>大写字母R</td>
+</tr>
+<tr>
+<td>01010011</td>
+<td>123</td>
+<td>83</td>
+<td>53</td>
+<td>S</td>
+<td>大写字母S</td>
+</tr>
+<tr>
+<td>01010100</td>
+<td>124</td>
+<td>84</td>
+<td>54</td>
+<td>T</td>
+<td>大写字母T</td>
+</tr>
+<tr>
+<td>01010101</td>
+<td>125</td>
+<td>85</td>
+<td>55</td>
+<td>U</td>
+<td>大写字母U</td>
+</tr>
+<tr>
+<td>01010110</td>
+<td>126</td>
+<td>86</td>
+<td>56</td>
+<td>V</td>
+<td>大写字母V</td>
+</tr>
+<tr>
+<td>01010111</td>
+<td>127</td>
+<td>87</td>
+<td>57</td>
+<td>W</td>
+<td>大写字母W</td>
+</tr>
+<tr>
+<td>01011000</td>
+<td>130</td>
+<td>88</td>
+<td>58</td>
+<td>X</td>
+<td>大写字母X</td>
+</tr>
+<tr>
+<td>01011001</td>
+<td>131</td>
+<td>89</td>
+<td>59</td>
+<td>Y</td>
+<td>大写字母Y</td>
+</tr>
+<tr>
+<td>01011010</td>
+<td>132</td>
+<td>90</td>
+<td>5A</td>
+<td>Z</td>
+<td>大写字母Z</td>
+</tr>
+<tr>
+<td>01011011</td>
+<td>133</td>
+<td>91</td>
+<td>5B</td>
+<td>[</td>
+<td>开方括号</td>
+</tr>
+<tr>
+<td>01011100</td>
+<td>134</td>
+<td>92</td>
+<td>5C</td>
+<td>\</td>
+<td>反斜杠</td>
+</tr>
+<tr>
+<td>01011101</td>
+<td>135</td>
+<td>93</td>
+<td>5D</td>
+<td>]</td>
+<td>闭方括号</td>
+</tr>
+<tr>
+<td>01011110</td>
+<td>136</td>
+<td>94</td>
+<td>5E</td>
+<td>^</td>
+<td>脱字符</td>
+</tr>
+<tr>
+<td>01011111</td>
+<td>137</td>
+<td>95</td>
+<td>5F</td>
+<td>_</td>
+<td>下划线</td>
+</tr>
+<tr>
+<td>01100000</td>
+<td>140</td>
+<td>96</td>
+<td>60</td>
+<td>`</td>
+<td>开单引号</td>
+</tr>
+<tr>
+<td>01100001</td>
+<td>141</td>
+<td>97</td>
+<td>61</td>
+<td>a</td>
+<td>小写字母a</td>
+</tr>
+<tr>
+<td>01100010</td>
+<td>142</td>
+<td>98</td>
+<td>62</td>
+<td>b</td>
+<td>小写字母b</td>
+</tr>
+<tr>
+<td>01100011</td>
+<td>143</td>
+<td>99</td>
+<td>63</td>
+<td>c</td>
+<td>小写字母c</td>
+</tr>
+<tr>
+<td>01100100</td>
+<td>144</td>
+<td>100</td>
+<td>64</td>
+<td>d</td>
+<td>小写字母d</td>
+</tr>
+<tr>
+<td>01100101</td>
+<td>145</td>
+<td>101</td>
+<td>65</td>
+<td>e</td>
+<td>小写字母e</td>
+</tr>
+<tr>
+<td>01100110</td>
+<td>146</td>
+<td>102</td>
+<td>66</td>
+<td>f</td>
+<td>小写字母f</td>
+</tr>
+<tr>
+<td>01100111</td>
+<td>147</td>
+<td>103</td>
+<td>67</td>
+<td>g</td>
+<td>小写字母g</td>
+</tr>
+<tr>
+<td>01101000</td>
+<td>150</td>
+<td>104</td>
+<td>68</td>
+<td>h</td>
+<td>小写字母h</td>
+</tr>
+<tr>
+<td>01101001</td>
+<td>151</td>
+<td>105</td>
+<td>69</td>
+<td>i</td>
+<td>小写字母i</td>
+</tr>
+<tr>
+<td>01101010</td>
+<td>152</td>
+<td>106</td>
+<td>6A</td>
+<td>j</td>
+<td>小写字母j</td>
+</tr>
+<tr>
+<td>01101011</td>
+<td>153</td>
+<td>107</td>
+<td>6B</td>
+<td>k</td>
+<td>小写字母k</td>
+</tr>
+<tr>
+<td>01101100</td>
+<td>154</td>
+<td>108</td>
+<td>6C</td>
+<td>l</td>
+<td>小写字母l</td>
+</tr>
+<tr>
+<td>01101101</td>
+<td>155</td>
+<td>109</td>
+<td>6D</td>
+<td>m</td>
+<td>小写字母m</td>
+</tr>
+<tr>
+<td>01101110</td>
+<td>156</td>
+<td>110</td>
+<td>6E</td>
+<td>n</td>
+<td>小写字母n</td>
+</tr>
+<tr>
+<td>01101111</td>
+<td>157</td>
+<td>111</td>
+<td>6F</td>
+<td>o</td>
+<td>小写字母o</td>
+</tr>
+<tr>
+<td>01110000</td>
+<td>160</td>
+<td>112</td>
+<td>70</td>
+<td>p</td>
+<td>小写字母p</td>
+</tr>
+<tr>
+<td>01110001</td>
+<td>161</td>
+<td>113</td>
+<td>71</td>
+<td>q</td>
+<td>小写字母q</td>
+</tr>
+<tr>
+<td>01110010</td>
+<td>162</td>
+<td>114</td>
+<td>72</td>
+<td>r</td>
+<td>小写字母r</td>
+</tr>
+<tr>
+<td>01110011</td>
+<td>163</td>
+<td>115</td>
+<td>73</td>
+<td>s</td>
+<td>小写字母s</td>
+</tr>
+<tr>
+<td>01110100</td>
+<td>164</td>
+<td>116</td>
+<td>74</td>
+<td>t</td>
+<td>小写字母t</td>
+</tr>
+<tr>
+<td>01110101</td>
+<td>165</td>
+<td>117</td>
+<td>75</td>
+<td>u</td>
+<td>小写字母u</td>
+</tr>
+<tr>
+<td>01110110</td>
+<td>166</td>
+<td>118</td>
+<td>76</td>
+<td>v</td>
+<td>小写字母v</td>
+</tr>
+<tr>
+<td>01110111</td>
+<td>167</td>
+<td>119</td>
+<td>77</td>
+<td>w</td>
+<td>小写字母w</td>
+</tr>
+<tr>
+<td>01111000</td>
+<td>170</td>
+<td>120</td>
+<td>78</td>
+<td>x</td>
+<td>小写字母x</td>
+</tr>
+<tr>
+<td>01111001</td>
+<td>171</td>
+<td>121</td>
+<td>79</td>
+<td>y</td>
+<td>小写字母y</td>
+</tr>
+<tr>
+<td>01111010</td>
+<td>172</td>
+<td>122</td>
+<td>7A</td>
+<td>z</td>
+<td>小写字母z</td>
+</tr>
+<tr>
+<td>01111011</td>
+<td>173</td>
+<td>123</td>
+<td>7B</td>
+<td>{</td>
+<td>开花括号</td>
+</tr>
+<tr>
+<td>01111100</td>
+<td>174</td>
+<td>124</td>
+<td>7C</td>
+<td>|</td>
+<td>垂线</td>
+</tr>
+<tr>
+<td>01111101</td>
+<td>175</td>
+<td>125</td>
+<td>7D</td>
+<td>}</td>
+<td>闭花括号</td>
+</tr>
+<tr>
+<td>01111110</td>
+<td>176</td>
+<td>126</td>
+<td>7E</td>
+<td>~</td>
+<td>波浪号</td>
+</tr>
+<tr>
+<td>01111111</td>
+<td>177</td>
+<td>127</td>
+<td>7F</td>
+<td>DEL (delete)</td>
+<td>删除</td>
+</tr>
+</tbody></table>
+<h1 id="四、linux系统信息获取"><a href="#四、linux系统信息获取" class="headerlink" title="四、linux系统信息获取"></a>四、linux系统信息获取</h1><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>update</code></td>
+<td>打印系统运行时长和平均负载</td>
+</tr>
+<tr>
+<td><code>who</code></td>
+<td>显示当前系统登录的用户信息</td>
+</tr>
+<tr>
+<td><code>last</code></td>
+<td>显示用户最近登录信息</td>
+</tr>
+<tr>
+<td><code>date</code></td>
+<td>显示或设置系统时间与日期</td>
+</tr>
+<tr>
+<td><code>w</code></td>
+<td>当前登录用户列表及正在执行的任务</td>
+</tr>
+<tr>
+<td><code>whoami</code></td>
+<td>打印当前有效的用户名称</td>
+</tr>
+<tr>
+<td><code>uname</code></td>
+<td>打印当前系统信息</td>
+</tr>
+<tr>
+<td><code>cal</code></td>
+<td>显示日历</td>
+</tr>
+</tbody></table>
+<p><code>uptime</code>系统运行时长</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apricity@qiu ~ % uptime</span><br><span class="line"> 14:28:15 up 6 days, 22:24,  1 user,  load average: 1.88, 1.19, 1.01</span><br></pre></td></tr></table></figure>
+
+
+<p><code>w</code>获取当前用户和正在执行的进程</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">apricity@qiu ~ % w                                                                                                        [127]</span><br><span class="line"> 14:33:51 up 6 days, 22:29,  1 user,  load average: 0.96, 0.95, 0.95</span><br><span class="line">USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT</span><br><span class="line">apricity pts/0    112.54.13.167    14:00    1.00s  3.35s  0.00s w</span><br></pre></td></tr></table></figure>
+
+
+<p><code>tty</code>虚拟终端  <code>from</code> 从哪里登录，<code>loging</code>在什么时候登录</p>
+<p><code> last | grep  -v &quot;wtmp begins&quot; | grep -v &quot;^$&quot; | grep -v &quot;reboot&quot; |ƒ |sort | uniq -c | sort -n -r  | head -n 2</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">上一次登录停留了多长时间</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+<p><code>uname</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">apricity@qiu linux基础 % uname -a</span><br><span class="line">Linux qiu 4.15.0-117-generic #118-Ubuntu SMP Fri Sep 4 20:02:41 UTC 2020 x86_64 x86_64 x86_64 GNU/Linux</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">apricity@qiu linux % date +&quot;%Y-%m-%d %H:%M:%S&quot;                                                                        [0]</span><br><span class="line">2020-11-29 15:40:28</span><br></pre></td></tr></table></figure>
+
+
+
+
+<p>cal日历</p>
+<h1 id="五、shell编程"><a href="#五、shell编程" class="headerlink" title="五、shell编程"></a>五、shell编程</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"><span class="meta">#</span><span class="bash">这是注释</span></span><br><span class="line"><span class="meta">#</span><span class="bash">  ！不是注释，指定解释器,固定格式</span></span><br><span class="line">echo &#x27;hello&#x27;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">:&lt;&lt;EOF</span><br><span class="line">注释的代码...</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h2 id="1-变量与局部变量"><a href="#1-变量与局部变量" class="headerlink" title="1.变量与局部变量"></a>1.变量与局部变量</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">变量</span></span><br><span class="line">apricity@qiu 1.shell % a=123                                                                                          [0]</span><br><span class="line">apricity@qiu 1.shell % echo $a                                                                                        [0]</span><br><span class="line">123</span><br><span class="line"></span><br><span class="line">apricity@qiu 1.shell % a = 123</span><br><span class="line">zsh: command not found: a</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>变量的定义</p>
+<p>​    a=12</p>
+<p>局部变量</p>
+<p>​    local a=12</p>
+<p>特殊变量</p>
+<ul>
+<li><p>位置变量</p>
+<p>$0:获取当前执行shell脚本文件名，包括路径</p>
+<p>$*:获取当前shell的所有参数</p>
+<p>$#：得到当前脚本的参数个数</p>
+<p>$@：获取这个程序所有的参数</p>
+</li>
+</ul>
+</blockquote>
+<p>状态变量</p>
+<p>​        $?：判断上一个指令是否执行成功，0为成功，非零不成功</p>
+<p>​        $$:获取当前进程的PID</p>
+<p>​        $!：上一个指令的PID</p>
+<h2 id="2-输入输出"><a href="#2-输入输出" class="headerlink" title="2.输入输出"></a>2.输入输出</h2><p><code>echo</code></p>
+<p><code>echo -e &quot;hello\n&quot;#开启转义</code></p>
+<p><code>printf</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">软转义</span></span><br><span class="line">apricity@qiu 1.shell % a=&quot;first.sh:$&#123;a&#125;&quot;                                                                                    [0]</span><br><span class="line">apricity@qiu 1.shell % echo $a                                                                                              [0]</span><br><span class="line">first.sh:first.sh</span><br><span class="line"><span class="meta">#</span><span class="bash">硬转义</span></span><br><span class="line">apricity@qiu 1.shell % a=&#x27;first.sh:$&#123;a&#125;&#x27;                                                                                    [0]</span><br><span class="line">apricity@qiu 1.shell % echo $a                                                                                              [0]</span><br><span class="line">first.sh:$&#123;a&#125;</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo -e “\033[32m 绿色字 \033[0m” </span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">命令替换符``，替换命令</span></span><br><span class="line">apricity@qiu 1.shell % a=`pwd`                                                                                              [0]</span><br><span class="line">apricity@qiu 1.shell % pwd                                                                                                  [0]</span><br><span class="line">/home/apricity/linux/1.shell</span><br><span class="line">apricity@qiu 1.shell % echo $a                                                                                              [0]</span><br><span class="line">/home/apricity/linux/1.shell</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">apricity@qiu 1.shell % PATH=$&#123;PATH&#125;:first.sh                                                                                [0]</span><br><span class="line">apricity@qiu 1.shell % echo $PATH                                                                                           [0]</span><br><span class="line">/home/apricity/.autojump/bin:/home/apricity/.autojump/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:first.sh</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+<p>特殊变量</p>
+<p><code>echo $?</code>上一条命令的执行结果</p>
+<p>read </p>
+<p>​    -s静默模式输入密码</p>
+<p>​    </p>
+<h2 id="3-函数"><a href="#3-函数" class="headerlink" title="3.函数"></a>3.函数</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="keyword">function</span> <span class="function"><span class="title">__printf__</span></span>() &#123;</span><br><span class="line">	<span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$1</span>&quot;</span></span><br><span class="line">	<span class="built_in">return</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">__printf__ <span class="string">&quot;hello guziqiu&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<h2 id="4-流程控制语句"><a href="#4-流程控制语句" class="headerlink" title="4.流程控制语句"></a>4.流程控制语句</h2><h3 id="1-if"><a href="#1-if" class="headerlink" title="1.if"></a>1.<code>if</code></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">read</span> a</span><br><span class="line"><span class="keyword">if</span> [[ <span class="variable">$a</span> -gt 10 ]];<span class="keyword">then</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$a</span> &gt; 10&quot;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$a</span> &lt;= 10&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">read</span> a</span><br><span class="line"><span class="keyword">if</span> [[ <span class="variable">$&#123;a&#125;</span> -gt 10 ]];<span class="keyword">then</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$a</span> &gt; 10&quot;</span></span><br><span class="line"><span class="keyword">elif</span> [[ <span class="variable">$&#123;a&#125;</span> -eq 10 ]];<span class="keyword">then</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$a</span> = 10&quot;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$a</span> &lt; 10&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+
+
+<p><code>test</code>表达式</p>
+<h3 id="2-while"><a href="#2-while" class="headerlink" title="2.while"></a>2.<code>while</code></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">while [[ condition ]]; do</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">num=0</span><br><span class="line"><span class="keyword">while</span> [[ <span class="variable">$num</span> -lt 100 ]];<span class="keyword">do</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="variable">$&#123;num&#125;</span></span><br><span class="line">	num=$[ <span class="variable">$&#123;num&#125;</span> + 1 ]</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="3-case"><a href="#3-case" class="headerlink" title="3.case"></a>3.case</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">case words in</span><br><span class="line">		pattern)</span><br><span class="line">					;;</span><br><span class="line">esac</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="built_in">read</span> a</span><br><span class="line"><span class="keyword">case</span> <span class="variable">$a</span> <span class="keyword">in</span></span><br><span class="line">	1)</span><br><span class="line">		<span class="built_in">echo</span> 1</span><br><span class="line">		;;</span><br><span class="line">	2)</span><br><span class="line">		<span class="built_in">echo</span> 2</span><br><span class="line">		;;</span><br><span class="line"><span class="keyword">esac</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">read</span> a</span><br><span class="line"><span class="keyword">case</span> <span class="variable">$a</span> <span class="keyword">in</span></span><br><span class="line">	1)</span><br><span class="line">		<span class="built_in">echo</span> 1</span><br><span class="line">		;;</span><br><span class="line">	2)</span><br><span class="line">		<span class="built_in">echo</span> 2</span><br><span class="line">		;;</span><br><span class="line">	default)</span><br><span class="line">		<span class="built_in">echo</span> <span class="string">&quot;not found&quot;</span></span><br><span class="line">		;;</span><br><span class="line"><span class="keyword">esac</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<p>遍历当前目录所有文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> `ls *.sh`;<span class="keyword">do</span>                                                                                [0]</span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$i</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line">1.first.sh</span><br><span class="line">2.func.sh</span><br><span class="line">3.if.sh</span><br><span class="line">4.case.sh</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+<h3 id="4-for"><a href="#4-for" class="headerlink" title="4.for"></a>4.for</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for in in words; do</span><br><span class="line">done</span><br><span class="line">for (( i=0; i&lt;10; i++ )); do</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="variable">$@</span>;<span class="keyword">do</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="variable">$i</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> ((i=1; i &lt;= 100; i++));<span class="keyword">do</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="variable">$i</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+<h3 id="5-until"><a href="#5-until" class="headerlink" title="5.until"></a>5.until</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">until [[ condition ]];do</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">num=0</span><br><span class="line">until [[ <span class="variable">$num</span> -eq 100 ]];<span class="keyword">do</span></span><br><span class="line">	<span class="built_in">echo</span> <span class="variable">$num</span></span><br><span class="line">	num=$[ <span class="variable">$&#123;num&#125;</span> + 1 ]</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+<p>100以内偶数求和</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">sum=0</span><br><span class="line"><span class="keyword">for</span> (( i=1; i&lt;=100; i++ ));<span class="keyword">do</span></span><br><span class="line">	<span class="keyword">if</span> [[ $[ <span class="variable">$&#123;i&#125;</span> % 2 ]  -eq 0 ]];<span class="keyword">then</span></span><br><span class="line">		sum=$[ <span class="variable">$&#123;sum&#125;</span> + <span class="variable">$&#123;i&#125;</span> ]</span><br><span class="line">	<span class="keyword">fi</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;sum&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+<p>空格敏感，</p>
+<p>=号左右不能加空格</p>
+<p>$a变量名</p>
+<p>$[ 整数计算 ]</p>
+<p>[[ test表达式 ]]</p>
+<h2 id="5-数组"><a href="#5-数组" class="headerlink" title="5.数组"></a>5.数组</h2><p><code>declare -a a</code></p>
+<blockquote>
+<p>输出数组内容</p>
+<p><code>$&#123;array[*]&#125;</code></p>
+<p><code>$&#123;array[@]&#125;</code></p>
+</blockquote>
+<blockquote>
+<p>确定数组元素个数</p>
+<p><code>$&#123;#array[@]&#125;`
+
+
+
+> 找到数组的下标
+>
+> `$&#123;!array[@]&#125;`
+
+
+
+> 追加数组
+>
+> `array+=(a,b,c);`
+
+> 数组排序
+>
+> `sort`
+
+> 删除数组元素
+>
+> `unset`
+
+
+
+
+
+
+
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">apricity@qiu:~/linux/1.shell$ <span class="built_in">read</span> -a a</span><br><span class="line">1 2 3 4 5 6 7</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">apricity@qiu:~/linux/1.shell$ <span class="built_in">echo</span> <span class="variable">$&#123;a&#125;</span></span><br><span class="line">1</span><br><span class="line">apricity@qiu:~/linux/1.shell$ <span class="built_in">echo</span> <span class="variable">$&#123;a[1]&#125;</span></span><br><span class="line">2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">apricity@qiu:~/linux/1.shell$ <span class="built_in">echo</span> <span class="variable">$&#123;a[@]&#125;</span></span><br><span class="line">1 2 3 4 5 6 7</span><br><span class="line"></span><br><span class="line">apricity@qiu:~/linux/1.shell$ <span class="built_in">echo</span> <span class="variable">$&#123;a[*]&#125;</span></span><br><span class="line">1 2 3 4 5 6 7</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">查看数组下标</span></span><br><span class="line">apricity@qiu:~/linux/1.shell$ echo $&#123;!c[*]&#125;</span><br><span class="line">0 1 2</span><br><span class="line">apricity@qiu:~/linux/1.shell$ echo $&#123;!c[@]&#125;</span><br><span class="line">0 1 2</span><br><span class="line"></span><br><span class="line">apricity@qiu:~/linux/1.shell$ c+=(4 5 6)</span><br><span class="line">apricity@qiu:~/linux/1.shell$ echo $&#123;c[@]&#125;</span><br><span class="line">0 1 3 4 5 6</span><br><span class="line">apricity@qiu:~/linux/1.shell$ echo $&#123;c[@]&#125; | sort</span><br><span class="line">0 1 3 4 5 6</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">apricity@qiu:~/linux/1.shell$ unset c</span><br><span class="line">apricity@qiu:~/linux/1.shell$ echo $&#123;c[@]&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">apricity@qiu:~/linux/1.shell$ d=(1 2  3  4 5  6 7 8)</span><br><span class="line">apricity@qiu:~/linux/1.shell$ echo $&#123;d[*]&#125;</span><br><span class="line">1 2 3 4 5 6 7 8</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">apricity@qiu:~/linux/1.shell$ echo $&#123;a[*]&#125;</span><br><span class="line">1 2 3 4 5 6 7</span><br><span class="line">apricity@qiu:~/linux/1.shell$ echo $&#123;a[1]&#125;</span><br><span class="line">2</span><br><span class="line">apricity@qiu:~/linux/1.shell$ unset a[1]</span><br><span class="line">apricity@qiu:~/linux/1.shell$ echo $&#123;a[1]&#125;</span><br><span class="line"></span><br><span class="line">apricity@qiu:~/linux/1.shell$ echo $&#123;a[*]&#125;</span><br><span class="line">1 3 4 5 6 7</span><br><span class="line"></span><br><span class="line">apricity@qiu:~/linux/1.shell$ echo $&#123;!a[*]&#125;</span><br><span class="line">0 2 3 4 5 6</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+素数筛
+
+
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">if [[ $# -ne 2 ]];then</span><br><span class="line">	echo &quot;error&quot;</span><br><span class="line">	exit</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">start=$1</span><br><span class="line">end=$2</span><br><span class="line"></span><br><span class="line">declare -a prime</span><br><span class="line"></span><br><span class="line">function init_prime() &#123;</span><br><span class="line">	local end=$1</span><br><span class="line">	local i</span><br><span class="line">	prime[1]=1</span><br><span class="line">	for (( i=2; i &lt;= $&#123;end&#125;; i++ ));do</span><br><span class="line">		for (( j=$[ 2 * $&#123;i&#125; ]; j &lt;= $&#123;end&#125;; j+=i ));do</span><br><span class="line"><span class="meta">			prime[$</span><span class="bash">&#123;j&#125;]=1</span></span><br><span class="line">		done</span><br><span class="line">	done</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">init_prime $&#123;end&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">for (( i=$&#123;start&#125;; i&lt;=$&#123;end&#125;; i++ ));do</span><br><span class="line">	if [[ $&#123;prime[$i]&#125;x == x ]];then</span><br><span class="line">		sum=$[ $&#123;sum&#125; + $&#123;i&#125; ]</span><br><span class="line">	fi</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line">echo $&#123;sum&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+# 六、文件及目录
+
+
+
+### 1.目录
+
+`cd`切换到当前目录
+
+`cd ..`切换到上层目录
+
+`cd.`  切换到当前目录
+
+`cd~/cd` 回到自己家目录
+
+`cd -`回到 上次工作目录
+
+`cd ~guziqiu/`切换到guziqiu的目录
+
+
+
+
+
+`pwd` 打印当前工作目录
+
+
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls -ald run/                                                                                             [0]</span><br><span class="line">drwxr-xr-x 21 root root 660 Dec  2 18:14 run/</span><br></pre></td></tr></table></figure>
+
+
+
+
+`pwd -L`显示逻辑工作目录
+
+`pwd -P`显示物理工作目录
+
+（链接文件）
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">apricity@qiu run % pwd                                                                                                       [0]</span><br><span class="line">/var/run</span><br><span class="line">apricity@qiu run % pwd -L                                                                                                    [0]</span><br><span class="line">/var/run</span><br><span class="line">apricity@qiu run % pwd -P                                                                                                    [0]</span><br><span class="line">/run</span><br></pre></td></tr></table></figure>
+
+
+
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ln ./1.shell/test/ .                                                                                    [0]</span><br><span class="line">ln: ./1.shell/test/: hard link not allowed for directory</span><br><span class="line"><span class="meta">#</span><span class="bash">hard link硬链接</span></span><br></pre></td></tr></table></figure>
+
+
+`mkdir -p`自动创建父目录
+
+
+
+
+
+!加一个命令匹配命令或者history里面的行数会输出显示该命令
+
+
+
+`./a.out`
+
+`./`是当前目录的意思
+
+
+
+
+
+### 2.文件及目录管理
+
+
+
+`cp [irapdslu]`
+
+> ➢选项
+> ➢`-i`: 若文件存在，询问用户
+> ➢`-r`:递归复制
+> `-a`:pdr的集合
+> ➢`-p`:连同文件属性一起拷贝
+> ➢`-d`: 若源文件为连接文件的属性，则复制连接文件的属性
+> ➢`-s`:拷贝为软连接
+> ➢`-1`:拷贝为硬连接
+> ➢`-u`:源文件比目的文件新才拷贝
+> ➢尝试: `cp filel file2 . dir`
+
+
+
+`rm`
+
+> `rm [irf]``
+>
+> ``-i`:互动模式
+>
+> `-r`:递归删除
+>
+> `-f`:force
+>
+> 
+
+
+
+`mv`
+
+> `mv [ifu]`
+>
+> `-i`:互动模式
+>
+> `-u`: 源文件更新才会移动
+>
+> `-f`:force
+
+
+
+### 3.文件内容查阅
+
+`cat`正向连续读
+
+> ➢`cat [-AbEnTv] <file>`
+> ➢选项:
+> ➢`-A`:相当于-vET
+> ➢-`V`:列出看不出的字符
+> `-E`:显示断行符为`$`
+> ➢`-T`:显示TAB为`^I`
+> ➢`-b`:列出行号
+> ➢`-n`:列出行号，连同空行也编号
+
+
+
+
+
+
+
+`tac`反向连续读
+
+`nl`输出行号显示文件
+
+>➢`nl [-bnw] <file>`
+>➢选项
+>➢`-b`:行号指定的方式
+>		`-b a`:相当于cat -n
+>		`-b t`:相当于cat -b
+>➢`-n`:列出行号的表示方法
+>		`-n ln`:行号在屏幕最左边显示
+>		`-n rn`:行号在自己字段的最右边显示
+>		`-n rz`:行号在自己字段的最右边显示，前面自动补全0
+>➢`-w <num>`:行号所占位数
+
+
+
+
+
+
+
+`more`一页一页的显示内容
+
+
+
+>MORE按页查看
+>`more file`
+>➢`/string`向下查找string关键字
+>➢`:f`显示文件名称和当前显示的行数
+>➢`q`离开
+
+
+
+
+
+
+
+`less`与相似但是可以上下翻看
+
+>LESS按页查看
+>
+>➢`less file`
+>➢`/string`向下查找  `n`:继续向下查找
+>➢`/?string`反向查找`N`:继续反向查询
+
+
+
+
+
+
+
+`head`只看头几行
+
+> HEAD查看头几行
+> ➢`head [-n num] <file>`
+> ➢`-nnum`:显示前num行
+> ➢`-n -num`:除了后num行外，其他的都显示
+
+
+
+
+
+`tail`只看尾几行
+
+>TAIL查看末尾几行
+>➢`tail [-n num] <file>`
+>➢`-n num`:显示文件后num行
+>➢`-n +num`:除了前num行，其他的都显示
+
+
+
+
+
+`od`以二进制形式查看文件内容
+
+>OD二_进制文件查看
+>➢`od [-t TYPE] <file>`
+>➢`-t` :
+>	➢`a`:默认字符输出
+>	➢`c`:ASCII字符输出
+>	➢`d[size]`:十进制输出，每个数占用size bytes
+>	➢`f[size]`:浮点数输出...
+>	➢`o[size]`:八进制输出....
+>	➢`x[size]:`十六进制输出...
+
+
+
+more和all
+
+
+
+
+
+### 4.修改文件时间与新建文件
+
+> ➢文件的三个时间
+> 	➢`mtime`:内容数据改动时才更新这个时间;
+> 	➢`ctime`:文件的权限，属性改动时更新这个时间
+> 	➢`atime`:文件的内容被取用access时，更新这个时间
+> ➢`ls -1 --time=ctime /etc/hostname`
+
+
+
+
+
+
+
+> ➢`touch [ - -acdmt] <file>`
+> ➢`-a`:仅修改访问时间
+> ➢`-c`:仅修改文件的时间，若文件不存在，不新建
+> ➢`-d`:修改文件日期
+> `-m`:仅修改mtime
+> ➢`-t`:修改文件时间[ yymmddhhmm]
+
+### 5.文件隐藏属性
+
+> ➢`chattr [+-=][ASacdistu] <file_ or_ dir>`
+> ➢`A`:不修改atime
+> ➢`S`:同步写入
+> ➢`a`:只能增加数据
+> ➢`c`:自动压缩，解压
+> ➢`d`:不会被dump程序备份
+> ➢`i`:不能删除，修改，建立连接
+> ➢`s`:文件删除时，直接从磁盘删除
+> ➢`u`:文件删除时，数据内容存在磁盘中
+
+
+
+
+
+> ➢`lsattr [-adR] <file_ or_ dir>`
+> ➢`-a`:打印隐藏文件的隐藏属性
+> ➢`-d`:如果是目录，仅打印目录的信息
+> ➢`-R`:递归
+
+
+
+
+
+### 6.文件的特殊权限
+
+
+
+`set_iuid`
+
+
+
+
+| 权限         |      | 作用对象               | 效果                                   |
+| ------------ | ---- | ---------------------- | -------------------------------------- |
+| `set_uid`    | S    | 二进制程序文件，非脚本 | 用户在执行改程序时获得程序所有者权限   |
+| `set_gid`    | s    | 目录和二进制文件       | 用户在该目录里，有效组变为目录所属组， |
+| `sticky bit` | t    | 目录                   | 在该目录下，用户只能删除自己创建的内容 |
+
+`chmod +t file`
+
+
+
+### 7.命令与文件的查询
+
+
+
+`whereis`寻找特定文件
+
+>➢`whereis [ - .bmsu] <file_or_dir>`
+>➢`-b`:只查找二进制文件
+>➢`-m`: 只查找manual路径下的文件
+>➢`-s`:只查找source源文件
+>`-u`:查找其他文件
+
+`which`寻找执行文件，查找path路径下所有可执行文件
+
+
+
+`locate` 搜索文件（可部分查找）
+
+>`LOCATE`模糊定位
+>➢`locate [-ir] keyword`
+>➢`-i`:忽略大小写
+>➢`-r`:后面可接正则表达式
+>➢相关文件: `/ect/updatedb . conf`
+>➢`/var/lib/mlocate`
+
+
+
+`find`多样化高级查找
+
+>`FIND`高级査找
+>
+>find 目录 -name 目录名
+>
+>➢`find [PATH] [ option] [action ]`
+>➢与用户或用户组相关的参数:
+>➢`-uid n`:用户UID为n
+>➢`-gid n`:群组Gid为n
+>➢`-user name`: 用户名为name
+>➢`-group name`:群组名为name
+>➢`-nouser`:文件所有者不存在
+>➢`nogroup`:文件所在组不存在
+>
+>
+>
+>➢与文件权限及名称有关的参数:
+>➢`-name filename`: 文件名为filename
+>➢`-size [+-] SIZE`:查找比SIZE大或小的
+>➢`-type TYPE`: `f b c d l s p` 
+>➢`-perm mode`: mode刚好等于的文件
+>➢-`perm -mode`:全部包含mode的文件
+>➢`find -exec ls -l &#123;&#125; \;`
+>
+>-exec 命令的开始
+>
+>\命令结尾
+>
+>
+>
+>〉`find [PATH] [option] [ action]`
+>与时间相关的参数: -`atime, -ctime, -mtime`
+>`-mtime n`: n天前的“一天之内’修改的文件amin
+>〉`-mtime +n`: n天之前，不包含n，修改过的文件
+>〉`-mtime - -n`: n天之内，包含n,修改过的文件
+>》`-newer file`: 比file还要新的文件
+
+
+
+
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> ls -al `which passwd`                                                                                                     [10]</span><br><span class="line">-rwsr-xr-x 1 root root 59640 Mar 23  2019 /usr/bin/passwd</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+## linux三剑客awk
+
+awk文本数据处理
+
+`awk [-Ffv] 'BEGIN&#123; commands&#125; pattern &#123; commands&#125; END &#123; commands&#125;' file`
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">last | grep -v &quot;^$&quot; | grep -v &quot;wtmp&quot; | grep -v &quot;still&quot;| head -5 | awk &#x27;BEGIN &#123;print &quot;start\n&quot;&#125; &#123;if ($1 == &quot;apricity&quot;) &#123;print $10&#125;&#125; END &#123;printf(&quot;%s\n&quot;,&quot;Bye&quot;)&#125;&#x27;| grep -v &quot;^$&quot; |cut -c 2-6 |awk -F: -v hour=0 -v min=0 &#x27;&#123;hour+=$1;min+=$2&#125; END &#123;if (min&gt;=60) &#123;hour+=min/60;min=min%60&#125; printf(&quot;%d hours, %d min&quot;,hour,min)&#125;&#x27;</span><br><span class="line">3 hours, 2 min%</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+# 七、数据提取操作
+
+
+
+
+
+
+
+| 命令    | 说明             | 命令    | 说明                 |
+| ------- | ---------------- | ------- | -------------------- |
+| `cut`   | 切分             | `grep`  | 检索                 |
+| `sort`  | 排序             | `wc`    | 统计字符、字数、行数 |
+| `uniq`  | 去重             | `tee`   | 双向重导项           |
+| `split` | 文件切分         | `xargs` | `参数代换`           |
+| `tr`    | 替换、压缩和删除 |         |                      |
+
+
+
+## 1.cut 切分
+
+>`➢cut [-dfc] <file>`
+>
+>​	`-d c`:以c字符分割(c在字符中)
+>
+>​	`-f num`: 显示num字段的内容`[n- ; n-m;-m]`
+>​    `-b num`: 字节
+>​	`-c num`: 字符
+
+`cut -d : -f 1`
+
+## 2.grep检索
+
+>`grep [-acinv] <string> <fi1e>`
+>	`-a`:将二进制文件以普通文件的形式搜寻数据
+>	`-c`:统计搜寻到的次数
+>
+>​	`-C`:统计
+>
+>​	`-i`:忽略大小写
+>​	`-n`:顺序输出行号
+>​	`-v`:反向输出(输出没找到的)
+
+`grep -v "^$"` 过滤空白符
+
+​	
+
+
+
+`ps -ef`   linux下任务管理器
+
+
+
+
+
+ 
+
+
+
+## 3.sort排序
+
+
+
+>➢`sort [ - fbMnrtuk] <file_ or_ stdio>`
+>➢`-f`:忽略大小写
+>➢`-b`:忽略最前面的空格符
+>➢`-M`:以月份名称排序
+>➢`-n`:以纯数字方式排序
+>`  -r`:反向排序
+>➢`-u`:uniq
+>➢`-t`:分割符，默认[TAB ]
+>➢`-k`:以那个区间排序
+
+
+
+## 4.WC统计字符,字数,行数
+
+>`wc [ - lwm] <file_or_stdin>`
+>➢`-1`:仅列出行号
+>➢`-w`:仅列出多少字
+>➢`-m`:仅列出多少字符
+
+
+
+## 5.UNIQ去重
+
+> ➢`uniq [-ic]`
+> ➢`-i`:忽略大小写字符的不同
+> ➢`-c`:进行计数
+
+
+
+
+
+## 6.TEE 双向重导项
+
+> `tee [-a] file`
+> `-a`:append
+
+ 
+
+## 7.SPLIT文件切分
+
+> ➢`split [-bl] <file> PREFIX` 
+> ➢`-b SIZE`: 切分为SIZE大小的文件
+> ➢`-l num`: 以num行为大小切分
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ls /etc/ | split -l 10</span><br><span class="line">  ls                                                                     [0]</span><br><span class="line">xaa  xab  xac  xad  xae  xaf  xag  xah  xai  xaj  xak  xal  xam  xan  xao  xap  xaq  xar  xas</span><br></pre></td></tr></table></figure>
+
+
+## 8.xargs参数代换
+
+> ➢`xargs [ -0pne] <command>`
+> ➢`-0`:将特殊字符还原为普通字符
+> ➢`-eEOF`: 当xargs读到EOF时停止
+> ➢`-p`:执行指令前询问
+> ➢`-n num`: 每次执行command时需要的参数个数
+
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;/etc/&quot;</span> | xargs ls</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot; . /bin /etc&quot;</span> | xargs -e<span class="string">&quot;/bin&quot;</span> ls                                [0]</span><br><span class="line">xaa  xab  xac  xad  xae  xaf  xag  xah	xai  xaj  xak  xal  xam  xan  xao  xap	xaq  xar  xas</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cat /etc/passwd | cut -d : -f 1  |xargs -p -n 1 id</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+## 9.tr 对标准输入的字符替换,压缩,删除
+
+> ➢`tr [cdst] <第一字符集> <第二字符集>`
+> ➢`c` 用字符集二取代所有不属于第一字符集的字符
+> ➢`d`删除所有属于第一字符集的字符
+> ➢`s`将连续重复的字符以单独一个字符表示
+> ➢`t`先删除第一字符集较第二字符集多出的字符
+
+` man ls | tr -sc "a-zA-Z" " "`
+
+`man ls | tr -sc "a-zA-Z" "\n" | sort | uniq -c | sort -nr | head -9`
+
+
+
+## 10.数据提取练习
+
+
+
+> 1.tr命令对文件的重命名，内容的替换操作
+
+
+
+> #“1 2 3 4 5 6 7 9 a v 你好 . /8”
+> #求以上字符串中所有数字之和
+
+`echo "1 2 3 4 5 6 7 9 a v 你好 . /8" | tr -c "1-9" "\n" | grep -v "^$" | awk '&#123;sum+=$1&#125; END &#123;print sum&#125;'`
+`45`
+
+> #echo “ABCefg” >> test.log
+>
+> #请将该文件中所有大写字母转换为小写
+
+
+ `echo  ABCefg | tr 'A-Z' 'a-z'`
+
+
+
+> 2.找到`PATH`变量中的最后一个路径。
+
+
+
+`echo $&#123;PATH&#125; | tr ":" "\n" | tail -1`
+
+
+
+> 3.使用`last`命令,输出所有的关机信息。
+
+
+
+`ast | grep "reboot"`
+
+
+
+> 4.将`/etc/passwd`中的内容按照用户名排序。
+
+`cat /etc/passwd | sort -t : -k 1`
+
+
+
+> 5.将`/etc/passwd`中的内容按`uid`排序。
+
+`cat /etc/passwd | sort -t : -k 3`
+
+
+
+> 6.在云主机上查找系统登录用户的总人次。
+
+`last | grep -v "^$" | grep -v "wtmp" | grep -v "reboot"  | wc -l`
+
+
+
+> 7.将云主机中登录的所有用户名，按照次数排序，并输出次数。
+
+`last | grep -v "^$" | grep -v "wtmp" | grep -v "reboot"  | cut -d " " -f 1 | sort | uniq  -c`
+    105 apricity
+     10 guziqiu
+      9 root
+      3 test
+
+> 8.将本地的`/etc`目录下的文件及目录，每十条保存到一个文件中。
+
+`ls /etc/ | split -l 10`
+
+> 9.将`/etc/passwd`中存放的第10到20个用户，输出`uid`，`gid`和`groups`。
+
+`cat /etc/passwd| head -n 20 | tail -n 10 | cut -d : -f 1 | xargs -n 1 id`
+
+> 10.将按照用户名查看`/etc/passwd`中的用户，读到`'sync'`用户结束。
+
+​		`cat /etc/passwd | cut -d : -f 1 | xargs -e"sync"`
+
+
+
+> 11.词频统计
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">使用下面这个命令生成一个文本文件。</span><br><span class="line">cat &gt;&gt; a.txt &lt;&lt; <span class="string">xxx</span></span><br><span class="line"><span class="string">nihao hello hello 你好 </span></span><br><span class="line"><span class="string">nihao</span></span><br><span class="line"><span class="string">hello </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">ls</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">cd</span></span><br><span class="line"><span class="string">world</span></span><br><span class="line"><span class="string">pwd</span></span><br><span class="line"><span class="string">xxx</span></span><br></pre></td></tr></table></figure>
+统计a.txt中各词的词频，并按照从大到小的顺序输出。
+
+`cat a.txt | tr -s " " "\n" | sort | uniq -c | sort -n -r | awk '&#123;print $2, $1&#125;'`
+
+`cat a.txt | tr  " " "\n" | grep -v "^$" | sort | uniq -c | sort -r`
+
+
+
+
+
+
+
+
+
+# 八、软/硬链接
+
+
+
+ext4文件系统将系统划分为inode、block、spuerblock（）
+
+## 1.block
+
+>文件是存储在硬盘上的，硬盘的最小存储单位叫做扇区`sector`，每个扇区存储`512字节`。操作系统读取硬盘的时候，不会一个个扇区地读取，这样效率太低，而是一次性连续读取多个扇区，即一次性读取一个块`block`。这种由多个扇区组成的块，是文件存取的最小单位。块的大小，最常见的是`4KB`，即连续八个`sector`组成一个`block`。
+
+
+
+## 2.inode文件结点
+
+> 文件数据存储在块中，那么还必须找到一个地方存储文件的元信息，比如文件的创建者、文件的创建日期、文件的大小等等。这种存储文件元信息的区域就叫做`inode`，中文译名为`索引节点`，也叫`i节点`。因此，一个文件必须占用一个`inode`，但至少占用一个`block`。
+
+- 元信息 → inode
+- 数据 → block
+
+------
+
+
+
+>`inode`包含很多的文件元信息，但不包含文件名，例如：字节数、属主`UserID`、属组`GroupID`、读写执行权限、时间戳等。
+>
+>而文件名存放在目录当中，但`Linux`系统内部不使用文件名，而是使用`inode号码`识别文件。对于系统来说文件名只是`inode号码`便于识别的别称。
+
+
+
+
+
+## 3.硬链接
+
+> 通过文件系统的`inode`链接来产生的新的文件名，而不是产生新的文件，称为硬链接。
+>
+> 一般情况下，每个`inode`号码对应一个文件名，但是`Linux`允许多个文件名指向同一个`inode`号码。意味着可以使用不同的文件名访问相同的内容。
+
+
+
+`ln 源文件 目标`
+
+
+
+> 运行该命令以后，源文件与目标文件的`inode`号码相同，都指向同一个`inode`。`inode`信息中的链接数这时就会增加`1`。
+
+> 当一个文件拥有多个硬链接时，对文件内容修改，会影响到所有文件名；但是删除一个文件名，不影响另一个文件名的访问。删除一个文件名，只会使得`inode`中的链接数减`1`。
+
+
+
+> 需要注意的是不能对目录做硬链接。
+>
+> 通过`mkdir`命令创建一个新目录，其硬链接数应该有`2`个，因为常见的目录本身为`1`个硬链接，而目录下面的隐藏目录`.（点号）`是该目录的又一个硬链接，也算是`1`个连接数。
+>
+> 直观理解是，如果允许硬链接指向目录，假设目录.../d1/...与.../d2/...互为硬链接，那么在d1下必然包含目录项“..”，试问这个“..”应该指向d1还是d2?
+
+
+
+
+
+## 4.软连接
+
+类似于Windows的快捷方式功能的文件，可以快速连接到目标文件或目录，称为软链接。
+
+`ln -s 源文件或目录 目标文件或目录`
+
+>软链接就是再创建一个独立的文件，而这个文件会让数据的读取指向它连接的那个文件的文件名。
+>
+>例如，文件`A`和文件`B`的`inode`号码虽然不一样，但是文件`A`的内容是文件`B`的路径。读取文件`A`时，系统会自动将访问者导向文件`B`。这时，文件`A`就称为文件`B`的软链接`soft link`或者符号链接`symbolic link`。
+
+
+
+>这意味着，文件`A`依赖于文件`B`而存在，如果删除了文件`B`，打开文件`A`就会报错。
+>
+>这是软链接与硬链接最大的不同：
+>
+>文件`A`指向文件`B`的文件名，而不是文件`B`的`inode`号码，
+>
+>文件`B`的`inode`链接数不会因此发生变化。
+
+
+
+
+
+
+
+# 九、shell实现线性筛
+
+
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if [[ $# -ne 2 ]];then</span><br><span class="line">	echo &quot;Usage: $0 start end&quot;</span><br><span class="line">	exit</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">start=$1</span><br><span class="line">end=$2</span><br><span class="line"></span><br><span class="line">declare -a prime</span><br><span class="line">sum=0</span><br><span class="line">for (( i=2; i&lt;=$&#123;end&#125;; i++ ));do</span><br><span class="line">	if [[ $&#123;prime[$i]&#125;x == x ]];then</span><br><span class="line">		prime[0]=$[ $&#123;prime[0]&#125; + 1 ]</span><br><span class="line"><span class="meta">		prime[$</span><span class="bash">&#123;prime[0]&#125;]=<span class="variable">$&#123;i&#125;</span></span></span><br><span class="line">	fi</span><br><span class="line">	for (( j=1; j&lt;=$&#123;prime[0]&#125;; j++ ));do</span><br><span class="line">		if [[ $[ $i * $&#123;prime[$j]&#125; ] -gt $&#123;end&#125; ]];then</span><br><span class="line">			break;</span><br><span class="line">		fi</span><br><span class="line"></span><br><span class="line">	done</span><br><span class="line">done</span><br><span class="line">for (( i=1; i&lt;=$&#123;prime[0]&#125;; i++ ));do</span><br><span class="line">	sum=$[ $&#123;sum&#125; + $&#123;prime[$i]&#125; ]</span><br><span class="line">done</span><br><span class="line">echo $sum</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+# 十、seq
+
+
+
+
+
+
+
+
+
+1.替换文件每行中第一个出现的正则表达式，并打印结果:
+`sed 's/&#123;&#123;regex&#125;&#125;/&#123;&#123;replace&#125;&#125;/&#39; &#123;&#123;filename&#125;&#125;</code></p>
+</blockquote>
+<p>2.***Replace all occurrences of an extended regular expression in a file, and print the result:<br><code>sed -r &#39;s/&#123;&#123;regex&#125;&#125;/&#123;&#123;replace&#125;&#125;/g&#39; &#123;&#123;filename&#125;&#125;</code></p>
+<p><code>/g</code>全局替换</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">at a.log | sed <span class="string">&#x27;s/abc/123/&#x27;</span>                  </span><br><span class="line">123123  abc</span><br><span class="line">frrrrrrtyd</span><br><span class="line">axcvrewgfdddddds</span><br><span class="line"> </span><br><span class="line">123</span><br><span class="line"></span><br><span class="line"> cat a.log | sed -r <span class="string">&#x27;s/abc/123/g&#x27;</span>                                         </span><br><span class="line">123123  123</span><br><span class="line">frrrrrrtyd</span><br><span class="line">axcvrewgfdddddds</span><br><span class="line"> </span><br><span class="line">123</span><br></pre></td></tr></table></figure>
+
+
+<p>3.Replace all occurrences of a string in a file, overwriting the file (i.e. in-place):<br><code>sed -i &#39;s/&#123;&#123;find&#125;&#125;/&#123;&#123;replace&#125;&#125;/g&#39; &#123;&#123;filename&#125;&#125;</code></p>
+<p>4.- Replace only on lines matching the line pattern:<br>   <code>sed &#39;/&#123;&#123;line_pattern&#125;&#125;/s/&#123;&#123;find&#125;&#125;/&#123;&#123;replace&#125;&#125;/&#39; &#123;&#123;filename&#125;&#125;</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">sed  &#x27;/1/s/abc/123/&#x27; a.log                                                                          </span><br><span class="line">123123  abc</span><br><span class="line">frrrrrrtyd</span><br><span class="line">axcvrewgfdddddds</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">abc</span><br><span class="line"></span><br><span class="line">cat a.log                                                                                         </span><br><span class="line">abc123  abc</span><br><span class="line">frrrrrrtyd</span><br><span class="line">axcvrewgfdddddds</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">abc</span><br></pre></td></tr></table></figure>
+
+
+<p>替换常用</p>
+<ol start="5">
+<li>***Delete lines matching the line pattern:<br><code>sed &#39;/&#123;&#123;line_pattern&#125;&#125;/d&#39; &#123;&#123;filename&#125;&#125;</code></li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">删除5-7行</span></span><br><span class="line">apricity@Apricity test % cat a.log | sed &quot;5,7d&quot;                         </span><br><span class="line">abc123  abc</span><br><span class="line">frrrrrrtyd</span><br><span class="line">axcvrewgfdddddds</span><br><span class="line"></span><br><span class="line">abc</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">apricity@Apricity test % cat a.log                                       </span><br><span class="line">abc123  abc</span><br><span class="line">frrrrrrtyd</span><br><span class="line">axcvrewgfdddddds</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">script</span></span><br><span class="line">echo &quot;abc&quot;</span><br><span class="line"><span class="meta">#</span><span class="bash">END</span></span><br><span class="line">abc</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">只删一行</span></span><br><span class="line">apricity@Apricity test % cat a.log | sed &quot;/script/d&quot;                                                                          [0]</span><br><span class="line">abc123  abc</span><br><span class="line">frrrrrrtyd</span><br><span class="line">axcvrewgfdddddds</span><br><span class="line"></span><br><span class="line">echo &quot;abc&quot;</span><br><span class="line"><span class="meta">#</span><span class="bash">END</span></span><br><span class="line">abc</span><br></pre></td></tr></table></figure>
+
+
+<p>6.***Replace separator / by any other character not used in the find or replace patterns, e.g., #: </p>
+<p><code>sed &#39;s#&#123;&#123;find&#125;&#125;#&#123;&#123;replace&#125;&#125;#&#39; &#123;&#123;filename&#125;&#125;</code></p>
+<p>可以用<code>#.,</code>代替<code>/</code></p>
+<p>7.Print the first 11 lines of a file:<br><code>sed 11q &#123;&#123;filename&#125;&#125;</code></p>
+<p><img src="https://guziqiu-pictures.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2020-12-08%20%E4%B8%8A%E5%8D%8811.53.06.png" alt="截屏2020-12-08 上午11.53.06"></p>
+<p>将123全部替换为abc</p>
+<p>8.将行首替换为<code>$</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sed &#x27;s/^/\$/g&#x27; a.log                                                       </span><br><span class="line"><span class="meta">$</span><span class="bash">abc123  abc</span></span><br><span class="line"><span class="meta">$</span><span class="bash">frrrrrrtyd</span></span><br><span class="line"><span class="meta">$</span><span class="bash">axcvrewgfdddddds</span></span><br><span class="line"><span class="meta">$</span></span><br><span class="line"><span class="bash"><span class="variable">$#script</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"><span class="built_in">echo</span> <span class="string">&quot;abc&quot;</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"><span class="comment">#END</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash">abc</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+<p>9.找到//里面的内容并且删除直到行尾</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> cat a.log | sed &#x27;/script/,$d&#x27;                                           </span><br><span class="line">abc123  abc</span><br><span class="line">frrrrrrtyd</span><br><span class="line">axcvrewgfdddddds</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+<h1 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h1><h2 id="1-vim"><a href="#1-vim" class="headerlink" title="1.vim"></a>1.vim</h2><p>快速跳转：</p>
+<blockquote>
+<p>行首                    0</p>
+<p>行尾                    $</p>
+<p>文件开始      gg</p>
+<p>文件末尾        GG</p>
+<p>任意行                :12,12G</p>
+</blockquote>
+<p>复制</p>
+<blockquote>
+<p>拷贝         yy</p>
+<p>剪切            dd</p>
+<p>多行操作   3yy/dd</p>
+</blockquote>
+<p>删除</p>
+<blockquote>
+<p>x  删除</p>
+<p>2dd</p>
+<p>d2G         删除两行</p>
+</blockquote>
+<p>vimtuter帮助手册</p>
+<p>linux</p>
+<blockquote>
+<p>linux历史     </p>
+<p>linux本质：linux内核操作系统，其他功能是各开发商开发</p>
+<p>unix：云计算后开始减少</p>
+</blockquote>
+<h2 id="2-shell"><a href="#2-shell" class="headerlink" title="2.shell"></a>2.shell</h2><p>zsh</p>
+<blockquote>
+<p>zsh相关文件</p>
+<blockquote>
+<p>zshenv：一般放环境变量</p>
+<p>zprofile：用于用户login时读入（执行）的配置</p>
+<p>zshrc：用户开启交互是命令行时读入的配置</p>
+</blockquote>
+<p>环境变量概念:</p>
+<p>环境变量是在操作系统中一个具有特定名字的对象，它包含了一个或者多个应用程序所将使用到的信息。</p>
+<p>执行命令的本质：从文件系统调用执行文件，返回结果</p>
+</blockquote>
+<p><img src="https://guziqiu-pictures.oss-cn-hangzhou.aliyuncs.com/img/%E6%88%AA%E5%B1%8F2020-12-15%20%E4%B8%8A%E5%8D%8811.47.50.png" alt="截屏2020-12-15 上午11.47.50"></p>
+<p>僵尸进程，父亲生了孩子，孩子没有被回收</p>
+<p>man手册</p>
+<blockquote>
+<p>man  </p>
+<p>tldr</p>
+<p>man -k</p>
+<p>检索   前后移动</p>
+<p>Baidu</p>
+<p>查找命令</p>
+<p>tab          自动补全命令</p>
+<p>man -k</p>
+<ul>
+<li>man -k：根据关键字搜索联机帮助，是一种模糊搜索。例如要查找”passwd”相关的信息，使用man -k passwd会找到很多和passwd相关的帮助页。</li>
+<li>man -f：关键字精确搜索，与-k不同，它只搜索与关键字完全匹配的帮助页</li>
+</ul>
+</blockquote>
+<h2 id="3-linux具体使用"><a href="#3-linux具体使用" class="headerlink" title="3.linux具体使用"></a>3.linux具体使用</h2><p>文件及目录</p>
+<p>远程拷贝ssh  、sshfs、scp</p>
+<p>sshfs:远程挂载</p>
+<p>文件查阅  <a href="#3.%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9%E6%9F%A5%E9%98%85">查阅</a></p>
+<blockquote>
+<p><code>cat</code></p>
+<p><code>head</code></p>
+<ul>
+<li>-n&lt;行数&gt; 显示的行数。</li>
+</ul>
+<p><code>tail</code></p>
+<ul>
+<li>-n&lt;行数&gt; 显示文件的尾部 n 行内容</li>
+</ul>
+<p><code>tail -f</code></p>
+<ul>
+<li><p>-f 循环读取</p>
+</li>
+<li><pre><code>tail -f notes.log
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  此命令显示 notes.log 文件的最后 10 行。当将某些行添加至 notes.log 文件时，tail 命令会继续显示这些行。 显示一直继续，直到您按下（Ctrl-C）组合键停止显示。</span><br><span class="line"></span><br><span class="line">&#96;more&#96; </span><br><span class="line"></span><br><span class="line">&#96;less&#96;可回看、检索信息高亮显示</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">移动和复制</span><br><span class="line"></span><br><span class="line">&#96;cp&#96;</span><br><span class="line"></span><br><span class="line">&#96;mv&#96;</span><br><span class="line"></span><br><span class="line">&#96;ln&#96;硬链接，软链接</span><br><span class="line"></span><br><span class="line">&#96;rm&#96;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件类型及权限  </span><br><span class="line"></span><br><span class="line">七种：</span><br><span class="line"></span><br><span class="line">普通文件</span><br><span class="line"></span><br><span class="line">目录</span><br><span class="line"></span><br><span class="line">字符</span><br><span class="line"></span><br><span class="line">块</span><br><span class="line"></span><br><span class="line">管道</span><br><span class="line"></span><br><span class="line">链接</span><br><span class="line"></span><br><span class="line">socket</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">权限 &#96;rwx&#96;   </span><br><span class="line"></span><br><span class="line">&gt;目录&#96;x&#96;可以&#96;cd&#96;进去</span><br><span class="line"></span><br><span class="line">&gt;用户分组 &#96;ugo&#96;</span><br><span class="line"></span><br><span class="line">&gt;命令</span><br><span class="line"></span><br><span class="line">&gt;&#96;chmod、chgrp、chown、usermod&#96;</span><br><span class="line"></span><br><span class="line">&gt;特殊权限：</span><br><span class="line"></span><br><span class="line">&gt;&#96;set uid&#96;</span><br><span class="line"></span><br><span class="line">&gt;只能改自己的权限</span><br><span class="line"></span><br><span class="line">&gt;&#96;set gid&#96;		用户临时进入目录时，创建一个文件时，该用户会临时变成目录所属组</span><br><span class="line"></span><br><span class="line">&gt;&#96;sed uid&#96;		当用户执行文件时，用户临时拥有此文件，如密码文件</span><br><span class="line"></span><br><span class="line">&gt;&#96;sbit&#96;黏着位		目录下的文件只能被所属者删掉</span><br><span class="line"></span><br><span class="line">&gt;隐藏属性  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">4.文件时间</span><br><span class="line"></span><br><span class="line">&#96;atime&#96;		访问时间，跟新过于频繁也不好，耗时</span><br><span class="line"></span><br><span class="line">&#96;ctime&#96;		修改时间</span><br><span class="line"></span><br><span class="line">&#96;mtime&#96;		修正时间   ls默认</span><br><span class="line"></span><br><span class="line">&#96;touch&#96;       创建文件，修改时间</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">文件定位：</span><br><span class="line"></span><br><span class="line">特殊文件：</span><br><span class="line"></span><br><span class="line">&#96;which&#96;</span><br><span class="line"></span><br><span class="line">&#96;whereis&#96;</span><br><span class="line"></span><br><span class="line">普通文件</span><br><span class="line"></span><br><span class="line">&#96;locate&#96;  	db updatedb(基于数据库)</span><br><span class="line"></span><br><span class="line">&#96;find&#96;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">数据处理[数据提取操作](#七、数据提取操作)</span><br><span class="line"></span><br><span class="line">cut		</span><br><span class="line"></span><br><span class="line">tr</span><br><span class="line"></span><br><span class="line">sort</span><br><span class="line"></span><br><span class="line">uniq</span><br><span class="line"></span><br><span class="line">grep</span><br><span class="line"></span><br><span class="line">awk</span><br><span class="line"></span><br><span class="line">sed</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">重定向</span><br><span class="line"></span><br><span class="line">\&gt;</span><br><span class="line"></span><br><span class="line">&#x2F;&gt;&gt;</span><br><span class="line"></span><br><span class="line">&lt;</span><br><span class="line"></span><br><span class="line">&lt;&lt;</span><br><span class="line"></span><br><span class="line">&#x2F;\&#96;a\&#96;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">读入数据:read</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;shell</span><br><span class="line">vim 1.sh</span><br><span class="line">read a</span><br><span class="line">read b</span><br><span class="line">echo$[ $a + $b ]</span><br><span class="line"></span><br><span class="line">vim 1.in</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line"></span><br><span class="line">bash 1.sh &lt; 1.in</span><br><span class="line">5</span><br></pre></td></tr></table></figure></code></pre>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vim 2.sh</span><br><span class="line">str=&#x27;&#x27;</span><br><span class="line">read str</span><br><span class="line">echo $&#123;str&#125;</span><br><span class="line">vim 2.in</span><br><span class="line">guziqiu is 18years old.</span><br><span class="line"></span><br><span class="line">bash 2.sh &lt; 2.in</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+<p>进程管理</p>
+<blockquote>
+<p><code>fg</code></p>
+<p><code>bg</code></p>
+<p><code>jobs</code></p>
+</blockquote>
+<p>定时任务</p>
+<blockquote>
+<p>crontab -e</p>
+</blockquote>
+<p>系统信息获取</p>
+<blockquote>
+<p><code>unname</code></p>
+<p><code>top</code></p>
+<p><code>free</code></p>
+<p><code>dstat</code></p>
+<p><code>htop</code></p>
+<p><code>nmon</code></p>
+<p><code>uptime</code></p>
+</blockquote>
+<h2 id="4-shell编程"><a href="#4-shell编程" class="headerlink" title="4.shell编程"></a>4.shell编程</h2><p>变量</p>
+<blockquote>
+<p>命令替换符</p>
+<p>特殊变量</p>
+<p><code>$0￥</code></p>
+<p><code>$#</code></p>
+<p><code>$?</code></p>
+<p><code>$@</code></p>
+<p><code>$*</code></p>
+</blockquote>
+<p>=两边没有空格</p>
+<p>输入输出</p>
+<blockquote>
+<p>read </p>
+<p>echo </p>
+<p>printf </p>
+</blockquote>
+<p>分支</p>
+<blockquote>
+<p>test表达式 </p>
+<p>​        man test</p>
+<p>整数判断：整数计算</p>
+<p>字符串     ==</p>
+</blockquote>
+<blockquote>
+<p>if [[  ]]</p>
+</blockquote>
+<blockquote>
+<p>case</p>
+</blockquote>
+<p>循环 for </p>
+<blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">for i in `seq 1 100`</span><br></pre></td></tr></table></figure>
+
+<p><code>for (( i =1;  i&lt;= 100;i++ ))</code>(推荐)</p>
+<p><code>while</code></p>
+<p><code>until</code></p>
+</blockquote>
+<p>函数</p>
+<p>数组</p>
+<blockquote>
+<p>数组初始化</p>
+<p>unset</p>
+<p>遍历</p>
+</blockquote>
+<p><img src="https://guziqiu-pictures.oss-cn-hangzhou.aliyuncs.com/img/1.png" alt="1"></p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>版权声明： </strong>
+          
+          本博客所有文章除特别声明外，著作权归作者所有。转载请注明出处！
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2021/01/17/Linux%E5%9F%BA%E7%A1%80/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux%E5%9F%BA%E7%A1%80/" rel="tag">linux基础</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2021/01/18/%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            高级数据结构
+          
+        </div>
+      </a>
+    
+    
+  </nav>
+
+  
+   
+     
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2021
+        <i class="ri-heart-fill heart_icon"></i> guziqiu
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        
+        由 <a href="https://hexo.io" target="_blank">Hexo</a> 强力驱动
+        <span class="division">|</span>
+        主题 - <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>访问人数:<span id="busuanzi_value_site_uv"></span></s>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>浏览次数:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+      <div class="float_btns">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+      </div>
+    </main>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.jpeg" alt="古子秋"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags/">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2019/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="搜索">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <script>
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelector('.content').classList.remove('on');
+        document.querySelector('.sidebar').classList.remove('on');
+      }
+    </script>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/img/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: '.tocbot',
+    contentSelector: '.article-entry',
+    headingSelector: 'h1, h2, h3, h4, h5, h6',
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: 'main',
+    positionFixedSelector: '.tocbot',
+    positionFixedClass: 'is-position-fixed',
+    fixedSidebarOffset: 'auto'
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css">
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script>
+
+<!-- MathJax -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+  });
+
+  MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.6/unpacked/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+  var ayerConfig = {
+    mathjax: true
+  }
+</script>
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+
+<script src="/js/clickBoom2.js"></script>
+
+
+<!-- CodeCopy -->
+
+
+<link rel="stylesheet" href="/css/clipboard.css">
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+
+
+<!-- CanvasBackground -->
+
+
+    
+  </div>
+</body>
+
+</html>
