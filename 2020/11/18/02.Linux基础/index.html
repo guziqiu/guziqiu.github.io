@@ -51,7 +51,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-Linux基础"
+  id="post-02.Linux基础"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -69,9 +69,13 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2021/01/17/Linux%E5%9F%BA%E7%A1%80/" class="article-date">
-  <time datetime="2021-01-17T15:40:11.000Z" itemprop="datePublished">2021-01-17</time>
-</a>   
+      <a href="/2020/11/18/02.Linux%E5%9F%BA%E7%A1%80/" class="article-date">
+  <time datetime="2020-11-18T15:40:11.000Z" itemprop="datePublished">2020-11-18</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux%E5%9F%BA%E7%A1%80/">linux基础</a>
+  </div>
+  
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
@@ -102,14 +106,16 @@
     <div class="article-entry" itemprop="articleBody">
        
   <p>2020.11.18-2020.12.20</p>
-<h1 id="一、基础知识"><a href="#一、基础知识" class="headerlink" title="一、基础知识"></a>一、基础知识</h1><h2 id="1-vim的基本使用"><a href="#1-vim的基本使用" class="headerlink" title="1.vim的基本使用"></a>1.<code>vim</code>的基本使用</h2><a id="more"></a>
-
-<blockquote>
+<h1 id="一、基础知识"><a href="#一、基础知识" class="headerlink" title="一、基础知识"></a>一、基础知识</h1><h2 id="1-vim的基本使用"><a href="#1-vim的基本使用" class="headerlink" title="1.vim的基本使用"></a>1.<code>vim</code>的基本使用</h2><blockquote>
 <p><code>pwd</code>        (print working directory)</p>
 <p><code>$0whoamiaptapt </code></p>
 <p><code>updateapt</code> </p>
 <p><code>upgrade</code><br><code>apt-cache search XXX</code>        (搜索XXX软件)<br><code>apt remove XXX</code>        (卸载XXX软件)<br><code>dpkg -i xxx.dep</code>        (使用dpkg程序安装xxx.dep)(安装 = install -&gt; -i)<br><code>dpkg -r</code>         (使用dpkg卸载软件)(卸载 = remove -&gt; -r)</p>
 </blockquote>
+<a id="more"></a>
+
+
+
 <h2 id="2-Terminal"><a href="#2-Terminal" class="headerlink" title="2.Terminal"></a>2.<code>Terminal</code></h2><p>终端<code>( terminal )= tty </code>(Teletypewriter， 电传打印机)，作用是提供一个命令的输入输出环 境，在<code>linux</code>操作系统下使用组合键 <code>ctrl + alt + T</code> 打开的就是终端，可以认为 <code>terminal</code> 和 <code>tty </code>是 同义词。</p>
 <h2 id="3-shell"><a href="#3-shell" class="headerlink" title="3.shell"></a>3.<code>shell</code></h2><p><code>shell</code>是一种人机交互的接口。 <code>shell</code> 有壳的意思，是指 “提供使用者使用界面” 的软件，是一种 命令解析器,是<code>Linux</code>内核的一个壳，负责外界与Linux内核的交互。</p>
 <blockquote>
@@ -148,13 +154,13 @@
 <p><strong>格式约定</strong></p>
 <ul>
 <li>使用 <code>[]</code> 来标记可以选择的选项</li>
-<li>使用 <code>|</code> 来表示不能同时使用的参数 </li>
+<li> 使用 <code>|</code> 来表示不能同时使用的参数 </li>
 <li>选项通常紧跟命令名，当然，在很多时候我们可以省略命令的选项而使用默认参数</li>
 </ul>
 <h2 id="4-程序与进程"><a href="#4-程序与进程" class="headerlink" title="4.程序与进程"></a><strong>4.程序与进程</strong></h2><blockquote>
 <p>那么什么是程序呢?</p>
 <blockquote>
-<p> 计算机程序是指一组指示计算机执行动作或做出判断的指令，通常用某种程序设计语言<br> 编写，运行于某种目标体系结构上。</p>
+<p> 计算机程序是指一组指示计算机执行动作或做出判断的指令，通常用某种程序设计语言<br>编写，运行于某种目标体系结构上。</p>
 </blockquote>
 </blockquote>
 <blockquote>
@@ -178,16 +184,16 @@
 <p><code>cd</code> #change directory</p>
 </blockquote>
 <blockquote>
-<p><code>ls</code> #list<br><code>pwd</code> #print working directory</p>
+<p><code>ls</code> #list<br> <code>pwd</code> #print working directory</p>
 </blockquote>
 <p><strong>特殊路径</strong></p>
 <blockquote>
-<p><code>~</code> 家目录<br><code>-</code> 上次工作目录</p>
+<p><code>~</code> 家目录<br> <code>-</code> 上次工作目录</p>
 </blockquote>
 <h2 id="6-软件"><a href="#6-软件" class="headerlink" title="6.软件"></a><strong>6.软件</strong></h2><p>通常，一个软件包含的内容会分别被拷⻉到同级别的 <code>bin lib share</code> 和 <code>/etc</code> 目录下。</p>
 <blockquote>
 <p><code>bin</code> 存放程序的可执行文件。在系统环境变量中将该路径添加进去，就可以直接执行程序. </p>
-<p><code>lib</code> 库文件集中存放，方便共享。<br><code>share</code> 存放程序需要的其他资源.<br><code>/etc</code> 配置文件存放路径，大部分的程序的配置文件都可以在这个路径下找到</p>
+<p><code>lib</code> 库文件集中存放，方便共享。<br> <code>share</code> 存放程序需要的其他资源.<br> <code>/etc</code> 配置文件存放路径，大部分的程序的配置文件都可以在这个路径下找到</p>
 </blockquote>
 <h2 id="7-配置方式"><a href="#7-配置方式" class="headerlink" title="7.配置方式"></a>7.<strong>配置方式</strong></h2><blockquote>
 <p><code>/etc/network/interface</code> 文件为Ubuntu的网络配置文件，通过修改该文件，并重启网络， 就可以实现网络的配置工作。</p>
@@ -259,7 +265,7 @@
 </ul>
 <blockquote>
 <p>使用<code>ll</code>命令查看文件，可以看到该文件为普通文件   <code>ll</code> == <code>ls -l</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ll /var/<span class="built_in">log</span>/wtmp</span><br><span class="line"></span><br><span class="line">&gt;-rw-rw-r-- 1 root utmp 8832 Apr 27 11:50 /var/<span class="built_in">log</span>/wtmp</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ll /var/<span class="built_in">log</span>/wtmp</span><br><span class="line"></span><br><span class="line"> -rw-rw-r-- 1 root utmp 8832 Apr 27 11:50 /var/<span class="built_in">log</span>/wtmp</span><br></pre></td></tr></table></figure>
 
 <p>使用file命令查看问价详情，返回为 <code>data</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;file /var/<span class="built_in">log</span>/wtmp</span><br><span class="line">&gt;/var/<span class="built_in">log</span>/wtmp: data</span><br></pre></td></tr></table></figure>
@@ -2146,12 +2152,12 @@
 
 
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo -e “\033[32m 绿色字 \033[0m” </span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">命令替换符``，替换命令</span></span><br><span class="line">apricity@qiu 1.shell % a=`pwd`                                                                                              [0]</span><br><span class="line">apricity@qiu 1.shell % pwd                                                                                                  [0]</span><br><span class="line">/home/apricity/linux/1.shell</span><br><span class="line">apricity@qiu 1.shell % echo $a                                                                                              [0]</span><br><span class="line">/home/apricity/linux/1.shell</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">命令替换符``，替换命令</span></span><br><span class="line">apricity@qiu 1.shell % a=`pwd`                                                                                              [0]</span><br><span class="line">apricity@qiu 1.shell % pwd                                                                                                  [0]</span><br><span class="line">/home/apricity/linux/1.shell</span><br><span class="line">apricity@qiu 1.shell % echo $a                                                                                              [0]</span><br><span class="line">/home/apricity/linux/1.shell</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
 
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">apricity@qiu 1.shell % PATH=$&#123;PATH&#125;:first.sh                                                                                [0]</span><br><span class="line">apricity@qiu 1.shell % echo $PATH                                                                                           [0]</span><br><span class="line">/home/apricity/.autojump/bin:/home/apricity/.autojump/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:first.sh</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">apricity@qiu 1.shell % PATH=$&#123;PATH&#125;:first.sh                                                                                [0]</span><br><span class="line">apricity@qiu 1.shell % echo $PATH                                                                                           [0]</span><br><span class="line">/home/apricity/.autojump/bin:/home/apricity/.autojump/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:first.sh</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
@@ -2266,7 +2272,7 @@
 
 
 
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">查看数组下标</span></span><br><span class="line">apricity@qiu:~/linux/1.shell$ echo $&#123;!c[*]&#125;</span><br><span class="line">0 1 2</span><br><span class="line">apricity@qiu:~/linux/1.shell$ echo $&#123;!c[@]&#125;</span><br><span class="line">0 1 2</span><br><span class="line"></span><br><span class="line">apricity@qiu:~/linux/1.shell$ c+=(4 5 6)</span><br><span class="line">apricity@qiu:~/linux/1.shell$ echo $&#123;c[@]&#125;</span><br><span class="line">0 1 3 4 5 6</span><br><span class="line">apricity@qiu:~/linux/1.shell$ echo $&#123;c[@]&#125; | sort</span><br><span class="line">0 1 3 4 5 6</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">apricity@qiu:~/linux/1.shell$ unset c</span><br><span class="line">apricity@qiu:~/linux/1.shell$ echo $&#123;c[@]&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">查看数组下标</span></span><br><span class="line">apricity@qiu:~/linux/1.shell$ echo $&#123;!c[*]&#125;</span><br><span class="line">0 1 2</span><br><span class="line">apricity@qiu:~/linux/1.shell$ echo $&#123;!c[@]&#125;</span><br><span class="line">0 1 2</span><br><span class="line"></span><br><span class="line">apricity@qiu:~/linux/1.shell$ c+=(4 5 6)</span><br><span class="line">apricity@qiu:~/linux/1.shell$ echo $&#123;c[@]&#125;</span><br><span class="line">0 1 3 4 5 6</span><br><span class="line">apricity@qiu:~/linux/1.shell$ echo $&#123;c[@]&#125; | sort</span><br><span class="line">0 1 3 4 5 6</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">apricity@qiu:~/linux/1.shell$ unset c</span><br><span class="line">apricity@qiu:~/linux/1.shell$ echo $&#123;c[@]&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
@@ -2285,7 +2291,7 @@
 
 
 
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">if [[ $# -ne 2 ]];then</span><br><span class="line">	echo &quot;error&quot;</span><br><span class="line">	exit</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">start=$1</span><br><span class="line">end=$2</span><br><span class="line"></span><br><span class="line">declare -a prime</span><br><span class="line"></span><br><span class="line">function init_prime() &#123;</span><br><span class="line">	local end=$1</span><br><span class="line">	local i</span><br><span class="line">	prime[1]=1</span><br><span class="line">	for (( i=2; i &lt;= $&#123;end&#125;; i++ ));do</span><br><span class="line">		for (( j=$[ 2 * $&#123;i&#125; ]; j &lt;= $&#123;end&#125;; j+=i ));do</span><br><span class="line"><span class="meta">			prime[$</span><span class="bash">&#123;j&#125;]=1</span></span><br><span class="line">		done</span><br><span class="line">	done</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">init_prime $&#123;end&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">for (( i=$&#123;start&#125;; i&lt;=$&#123;end&#125;; i++ ));do</span><br><span class="line">	if [[ $&#123;prime[$i]&#125;x == x ]];then</span><br><span class="line">		sum=$[ $&#123;sum&#125; + $&#123;i&#125; ]</span><br><span class="line">	fi</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line">echo $&#123;sum&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">if [[ $# -ne 2 ]];then</span><br><span class="line">	echo &quot;error&quot;</span><br><span class="line">	exit</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">start=$1</span><br><span class="line">end=$2</span><br><span class="line"></span><br><span class="line">declare -a prime</span><br><span class="line"></span><br><span class="line">function init_prime() &#123;</span><br><span class="line">	local end=$1</span><br><span class="line">	local i</span><br><span class="line">	prime[1]=1</span><br><span class="line">	for (( i=2; i &lt;= $&#123;end&#125;; i++ ));do</span><br><span class="line">		for (( j=$[ 2 * $&#123;i&#125; ]; j &lt;= $&#123;end&#125;; j+=i ));do</span><br><span class="line"><span class="meta">			prime[$</span><span class="bash">&#123;j&#125;]=1</span></span><br><span class="line">		done</span><br><span class="line">	done</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">init_prime $&#123;end&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">for (( i=$&#123;start&#125;; i&lt;=$&#123;end&#125;; i++ ));do</span><br><span class="line">	if [[ $&#123;prime[$i]&#125;x == x ]];then</span><br><span class="line">		sum=$[ $&#123;sum&#125; + $&#123;i&#125; ]</span><br><span class="line">	fi</span><br><span class="line">done</span><br><span class="line"></span><br><span class="line">echo $&#123;sum&#125;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -2449,6 +2455,7 @@
 >➢`/string`向下查找string关键字
 >➢`:f`显示文件名称和当前显示的行数
 >➢`q`离开
+>
 
 
 
@@ -2737,7 +2744,7 @@ awk文本数据处理
 >➢`-b`:忽略最前面的空格符
 >➢`-M`:以月份名称排序
 >➢`-n`:以纯数字方式排序
->`  -r`:反向排序
+>   `  -r`:反向排序
 >➢`-u`:uniq
 >➢`-t`:分割符，默认[TAB ]
 >➢`-k`:以那个区间排序
@@ -3250,7 +3257,7 @@ ext4文件系统将系统划分为inode、block、spuerblock（）
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://guziqiu.cn/2021/01/17/Linux%E5%9F%BA%E7%A1%80/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://guziqiu.cn/2020/11/18/02.Linux%E5%9F%BA%E7%A1%80/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -3263,7 +3270,7 @@ ext4文件系统将系统划分为inode、block、spuerblock（）
    
   <nav class="article-nav">
     
-      <a href="/2021/01/18/%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="article-nav-link">
+      <a href="/2020/12/22/04.%E9%AB%98%E7%BA%A7%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
@@ -3272,6 +3279,11 @@ ext4文件系统将系统划分为inode、block、spuerblock（）
         </div>
       </a>
     
+    
+      <a href="/2020/11/17/01.C%E8%AF%AD%E8%A8%80/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">C语言</div>
+      </a>
     
   </nav>
 
